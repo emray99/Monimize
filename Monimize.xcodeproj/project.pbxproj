@@ -27,7 +27,6 @@
 		5CBA6E4B262D1520009B29F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CBA6E4A262D1520009B29F7 /* Assets.xcassets */; };
 		5CBA6E4E262D1520009B29F7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CBA6E4D262D1520009B29F7 /* Preview Assets.xcassets */; };
 		5CBA6E51262D1520009B29F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CBA6E4F262D1520009B29F7 /* LaunchScreen.storyboard */; };
-		7888C0832630695E00335353 /* SavingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7888C0822630695E00335353 /* SavingList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,7 +52,6 @@
 		5CBA6E4D262D1520009B29F7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5CBA6E50262D1520009B29F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5CBA6E52262D1520009B29F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7888C0822630695E00335353 /* SavingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SavingList.swift; path = ../../../../SavingList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,9 +125,9 @@
 		5C46BD95262FBB960052EA29 /* Saving Plan */ = {
 			isa = PBXGroup;
 			children = (
-				7888C0822630695E00335353 /* SavingList.swift */,
 			);
-			path = "Saving Plan";
+			name = "Saving Plan";
+			path = "Svaing Plan";
 			sourceTree = "<group>";
 		};
 		5C46BD96262FBB9D0052EA29 /* Gadgets */ = {
@@ -150,8 +148,9 @@
 			isa = PBXGroup;
 			children = (
 			);
-			path = "API Data";
-			sourceTree = "<group>";
+			name = "API Data";
+			path = "Monimize/API Data";
+			sourceTree = SOURCE_ROOT;
 		};
 		5C46BD99262FBC210052EA29 /* Data Models */ = {
 			isa = PBXGroup;
@@ -292,7 +291,6 @@
 				5C46BDB8262FCEE10052EA29 /* UserData.swift in Sources */,
 				5C46BD90262FBB1A0052EA29 /* NavigationStyle.swift in Sources */,
 				5C46BD8A262FBA620052EA29 /* UtilityFunctions.swift in Sources */,
-				7888C0832630695E00335353 /* SavingList.swift in Sources */,
 				5C46BDBB262FCEF00052EA29 /* MonimizeItemDataDataData.swift in Sources */,
 				5C46BDA7262FC7750052EA29 /* Photo.swift in Sources */,
 				5C46BDAB262FCA590052EA29 /* PhotoCaptureView.swift in Sources */,
