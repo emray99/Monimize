@@ -1,0 +1,36 @@
+[
+    {
+        "itemName": "new Macbook",
+        "itemCost": 1099.99,
+        "itemDescription": "Awesome Macbook gotta buy",
+        "itemLocation": "Apple store nearby",
+        "purchaseTime": "2021-10-04",
+        "trailerID": "5sEaYB4rLFQ",
+        "photoFilename": "ApplePark",
+        "photoLatitude": 0.0,
+        "photoLongitude": 0.0
+    },
+    {
+        "itemName": "great Movie",
+        "itemCost": 15.99,
+        "itemDescription": "Great movie gotta watch",
+        "itemLocation": "Movie theater nearby",
+        "purchaseTime": "2021-05-04",
+        "trailerID": "ZQ-YX-5bAs0",
+        "photoFilename": "Bali",
+        "photoLatitude": -8.340539,
+        "photoLongitude": 115.091949
+    },
+    {
+        "itemName": "cool restaurant",
+        "itemCost": 50.0,
+        "itemDescription": "cool restaurant gotta try",
+        "itemLocation:" "restaurant nearyby",
+        "purchaseTime": "2021-09-04",
+        "trailerID": "dzxFdtWmjto",
+        "photoFilename": "Dubai",
+        "photoLatitude": 25.204849,
+        "photoLongitude": 55.270782
+    }
+     
+]
