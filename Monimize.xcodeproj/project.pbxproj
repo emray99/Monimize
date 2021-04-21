@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		072982A0263071100078FF8B /* ExpenseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0729829F263071100078FF8B /* ExpenseList.swift */; };
 		072987182630763B0078FF8B /* ExpenseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072987172630763B0078FF8B /* ExpenseList.swift */; };
 		5C46BD86262FBA490052EA29 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C46BD85262FBA490052EA29 /* WebView.swift */; };
 		5C46BD8A262FBA620052EA29 /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C46BD89262FBA620052EA29 /* UtilityFunctions.swift */; };
@@ -32,7 +31,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0729829F263071100078FF8B /* ExpenseList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExpenseList.swift; path = ../../../../ExpenseList.swift; sourceTree = "<group>"; };
 		072987172630763B0078FF8B /* ExpenseList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseList.swift; sourceTree = "<group>"; };
 		5C46BD85262FBA490052EA29 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		5C46BD89262FBA620052EA29 /* UtilityFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFunctions.swift; sourceTree = "<group>"; };
@@ -69,6 +67,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0729871A263076AA0078FF8B /* Tab Views */ = {
+			isa = PBXGroup;
+			children = (
+				07298720263077140078FF8B /* Recreation */,
+				0729871F263077090078FF8B /* Gadgets */,
+				0729871E263077000078FF8B /* Home */,
+				0729871C263076C90078FF8B /* My Expense */,
+				0729871B263076C30078FF8B /* Saving Plan */,
+			);
+			path = "Tab Views";
+			sourceTree = "<group>";
+		};
+		0729871B263076C30078FF8B /* Saving Plan */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Saving Plan";
+			sourceTree = "<group>";
+		};
+		0729871C263076C90078FF8B /* My Expense */ = {
+			isa = PBXGroup;
+			children = (
+				072987172630763B0078FF8B /* ExpenseList.swift */,
+			);
+			name = "My Expense";
+			sourceTree = "<group>";
+		};
+		0729871E263077000078FF8B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		0729871F263077090078FF8B /* Gadgets */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Gadgets;
+			sourceTree = "<group>";
+		};
+		07298720263077140078FF8B /* Recreation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Recreation;
+			sourceTree = "<group>";
+		};
 		5C46BD82262FB9FE0052EA29 /* CoreData Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -98,55 +144,6 @@
 				5C46BDBD262FD4320052EA29 /* CurrentLocation.swift */,
 			);
 			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		5C46BD92262FBB630052EA29 /* Tab Bar Views */ = {
-			isa = PBXGroup;
-			children = (
-				5C46BD93262FBB880052EA29 /* Home */,
-				5C46BD94262FBB8E0052EA29 /* My Expense */,
-				5C46BD95262FBB960052EA29 /* Saving Plan */,
-				5C46BD96262FBB9D0052EA29 /* Gadgets */,
-				5C46BD97262FBBA50052EA29 /* Recreation */,
-			);
-			path = "Tab Bar Views";
-			sourceTree = "<group>";
-		};
-		5C46BD93262FBB880052EA29 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		5C46BD94262FBB8E0052EA29 /* My Expense */ = {
-			isa = PBXGroup;
-			children = (
-				0729829F263071100078FF8B /* ExpenseList.swift */,
-			);
-			path = "My Expense";
-			sourceTree = "<group>";
-		};
-		5C46BD95262FBB960052EA29 /* Saving Plan */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Saving Plan";
-			path = "Svaing Plan";
-			sourceTree = "<group>";
-		};
-		5C46BD96262FBB9D0052EA29 /* Gadgets */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Gadgets;
-			sourceTree = "<group>";
-		};
-		5C46BD97262FBBA50052EA29 /* Recreation */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Recreation;
 			sourceTree = "<group>";
 		};
 		5C46BD98262FBBED0052EA29 /* API Data */ = {
@@ -202,9 +199,8 @@
 				5C46BD84262FBA230052EA29 /* Supporting Files */,
 				5C46BD82262FB9FE0052EA29 /* CoreData Model */,
 				5C46BD99262FBC210052EA29 /* Data Models */,
-				5C46BD92262FBB630052EA29 /* Tab Bar Views */,
 				5CBA6E45262D151F009B29F7 /* ContentView.swift */,
-				072987172630763B0078FF8B /* ExpenseList.swift */,
+				0729871A263076AA0078FF8B /* Tab Views */,
 				5CBA6E4A262D1520009B29F7 /* Assets.xcassets */,
 				5CBA6E4F262D1520009B29F7 /* LaunchScreen.storyboard */,
 				5CBA6E52262D1520009B29F7 /* Info.plist */,
@@ -295,7 +291,6 @@
 				5C46BD8D262FBA980052EA29 /* SearchResultsEmpty.swift in Sources */,
 				5C46BDA4262FC6230052EA29 /* Item.swift in Sources */,
 				5C46BDB8262FCEE10052EA29 /* UserData.swift in Sources */,
-				072982A0263071100078FF8B /* ExpenseList.swift in Sources */,
 				072987182630763B0078FF8B /* ExpenseList.swift in Sources */,
 				5C46BD90262FBB1A0052EA29 /* NavigationStyle.swift in Sources */,
 				5C46BD8A262FBA620052EA29 /* UtilityFunctions.swift in Sources */,
