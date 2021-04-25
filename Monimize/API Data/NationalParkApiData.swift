@@ -81,7 +81,8 @@ public func obtainNationalParkDataFromApi(category: String, query: String) {
     
     //let myApiKey = "KkO0cfCVZIF1uXbYUrEKxO9sE4jZFzomXh2lVTBv"
     //let myApiKey = "L07y7qFQWGJc3bEiaSgIOkUhw4eahTEOMZ7RdQY1"
-    let myApiKey = "QZgKYsbkerv8SWiVMKQjMUBUGayfhnBZdUajbsEs"
+    //let myApiKey = "QZgKYsbkerv8SWiVMKQjMUBUGayfhnBZdUajbsEs"
+    let myApiKey = "YmgUblWUd7EKjd3mQwT3nDZmgp9P2UUR1afpCLrF"
         
     /*
      *************************
