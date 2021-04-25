@@ -38,9 +38,9 @@ public func cashInIDSearchList()
 {
     //parkResultsList.removeAll()
     
-    var temp = 60
+    var temp = 25
     
-    if (parkIDList.count < 60)
+    if (parkIDList.count < 25)
     {
         temp = parkIDList.count
     }
@@ -79,7 +79,9 @@ public func obtainNationalParkDataFromApi(category: String, query: String) {
     
     var parkFound = Park(id: UUID(), name: "", ticketPrice: 0.0, latitude: 0.0, longitude: 0.0, description: "", website: "", state: "", parkImage: "", parkType: "")
     
-    let myApiKey = "KkO0cfCVZIF1uXbYUrEKxO9sE4jZFzomXh2lVTBv"
+    //let myApiKey = "KkO0cfCVZIF1uXbYUrEKxO9sE4jZFzomXh2lVTBv"
+    //let myApiKey = "L07y7qFQWGJc3bEiaSgIOkUhw4eahTEOMZ7RdQY1"
+    let myApiKey = "QZgKYsbkerv8SWiVMKQjMUBUGayfhnBZdUajbsEs"
         
     /*
      *************************
