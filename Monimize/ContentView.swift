@@ -9,13 +9,18 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Temp")
-            .padding()
+        TabView {
+            TestItemList()
+                .tabItem {
+                    Image(systemName: "house.fill")
+                    Text("ForTesting")
+                }
+           
+     
+        }   // End of TabView
+            .font(.headline)
+            .imageScale(.medium)
+            .font(Font.title.weight(.regular))
     }
 }
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+ 
