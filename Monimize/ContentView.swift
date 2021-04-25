@@ -15,6 +15,12 @@ struct ContentView: View {
                     Image(systemName: "house.fill")
                     Text("ForTesting")
                 }
+            
+            MainSearchPage()
+                .tabItem{
+                    Image(systemName: "lasso.sparkles")
+                    Text("Recreation")
+                }
            
      
         }   // End of TabView

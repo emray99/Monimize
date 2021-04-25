@@ -17,7 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         createExpenseDatabase()
-        getPermissionForLocation()          //CurrentLocation.swift
+        
+        getPermissionForLocation()
 
         return true
     }
