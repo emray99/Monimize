@@ -51,11 +51,11 @@
 		5C46BE162636529D0052EA29 /* SavingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C46BE152636529D0052EA29 /* SavingItem.swift */; };
 		5C46BE1E263652BC0052EA29 /* SavingPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C46BE1D263652BC0052EA29 /* SavingPhoto.swift */; };
 		5C46BE21263652E20052EA29 /* CircleProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C46BE20263652E20052EA29 /* CircleProgressBar.swift */; };
-		5C9758B92637690200EAF28F /* Monimize.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5C9758B72637690200EAF28F /* Monimize.xcdatamodeld */; };
 		5C9758BD263769FE00EAF28F /* GadgetMainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9758BC263769FE00EAF28F /* GadgetMainPage.swift */; };
 		5C9758C026376A1700EAF28F /* QRCodePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9758BF26376A1700EAF28F /* QRCodePage.swift */; };
 		5C9758C326376A2400EAF28F /* VoiceRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9758C226376A2400EAF28F /* VoiceRecorder.swift */; };
 		5C9758C626376A3200EAF28F /* CurrencyConverterPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9758C526376A3200EAF28F /* CurrencyConverterPage.swift */; };
+		5C9758CA26376AAF00EAF28F /* Monimize.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5C9758C826376AAF00EAF28F /* Monimize.xcdatamodeld */; };
 		5CBA6E42262D151F009B29F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBA6E41262D151F009B29F7 /* AppDelegate.swift */; };
 		5CBA6E44262D151F009B29F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBA6E43262D151F009B29F7 /* SceneDelegate.swift */; };
 		5CBA6E46262D151F009B29F7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBA6E45262D151F009B29F7 /* ContentView.swift */; };
@@ -109,11 +109,11 @@
 		5C46BE152636529D0052EA29 /* SavingItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavingItem.swift; sourceTree = "<group>"; };
 		5C46BE1D263652BC0052EA29 /* SavingPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavingPhoto.swift; sourceTree = "<group>"; };
 		5C46BE20263652E20052EA29 /* CircleProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleProgressBar.swift; sourceTree = "<group>"; };
-		5C9758B82637690200EAF28F /* Monimize.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Monimize.xcdatamodel; sourceTree = "<group>"; };
 		5C9758BC263769FE00EAF28F /* GadgetMainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GadgetMainPage.swift; sourceTree = "<group>"; };
 		5C9758BF26376A1700EAF28F /* QRCodePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodePage.swift; sourceTree = "<group>"; };
 		5C9758C226376A2400EAF28F /* VoiceRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceRecorder.swift; sourceTree = "<group>"; };
 		5C9758C526376A3200EAF28F /* CurrencyConverterPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterPage.swift; sourceTree = "<group>"; };
+		5C9758C926376AAF00EAF28F /* Monimize.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Monimize.xcdatamodel; sourceTree = "<group>"; };
 		5CBA6E3E262D151F009B29F7 /* Monimize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Monimize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CBA6E41262D151F009B29F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5CBA6E43262D151F009B29F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -207,7 +207,7 @@
 		5C46BD82262FB9FE0052EA29 /* CoreData Model */ = {
 			isa = PBXGroup;
 			children = (
-				5C9758B72637690200EAF28F /* Monimize.xcdatamodeld */,
+				5C9758C826376AAF00EAF28F /* Monimize.xcdatamodeld */,
 				5C46BDA3262FC6230052EA29 /* Item.swift */,
 				5C46BDA6262FC7750052EA29 /* Photo.swift */,
 				5C46BE1D263652BC0052EA29 /* SavingPhoto.swift */,
@@ -424,7 +424,6 @@
 				5C46BDA7262FC7750052EA29 /* Photo.swift in Sources */,
 				5C9758C026376A1700EAF28F /* QRCodePage.swift in Sources */,
 				5C46BDD32635361F0052EA29 /* MainSearchPage.swift in Sources */,
-				5C9758B92637690200EAF28F /* Monimize.xcdatamodeld in Sources */,
 				5C46BDD9263537930052EA29 /* FindNationalParkPage.swift in Sources */,
 				5C46BE1E263652BC0052EA29 /* SavingPhoto.swift in Sources */,
 				5C46BDC72634ED050052EA29 /* TestItemItem.swift in Sources */,
@@ -433,6 +432,7 @@
 				5C46BDEE26361EDD0052EA29 /* MovieStruct.swift in Sources */,
 				5C46BE11263652310052EA29 /* AddMoney.swift in Sources */,
 				5C46BE13263652310052EA29 /* AddSavingPlan.swift in Sources */,
+				5C9758CA26376AAF00EAF28F /* Monimize.xcdatamodeld in Sources */,
 				5C46BDCA2634ED0F0052EA29 /* TestItemDetails.swift in Sources */,
 				5C46BDFB263621060052EA29 /* CharacterList.swift in Sources */,
 				5C9758C626376A3200EAF28F /* CurrencyConverterPage.swift in Sources */,
@@ -648,12 +648,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		5C9758B72637690200EAF28F /* Monimize.xcdatamodeld */ = {
+		5C9758C826376AAF00EAF28F /* Monimize.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				5C9758B82637690200EAF28F /* Monimize.xcdatamodel */,
+				5C9758C926376AAF00EAF28F /* Monimize.xcdatamodel */,
 			);
-			currentVersion = 5C9758B82637690200EAF28F /* Monimize.xcdatamodel */;
+			currentVersion = 5C9758C926376AAF00EAF28F /* Monimize.xcdatamodel */;
 			name = Monimize.xcdatamodeld;
 			path = "../../../../备份/Monimize/Monimize/CoreData Model/Monimize.xcdatamodeld";
 			sourceTree = "<group>";
