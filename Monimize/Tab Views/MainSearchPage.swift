@@ -31,7 +31,7 @@ struct MainSearchPage: View {
                 
 
                 
-                NavigationLink(destination: FindMoviePage()) {
+                NavigationLink(destination: showRecentMovies) {
 
                     HStack {
 
@@ -85,6 +85,16 @@ struct MainSearchPage: View {
     }
         
     }
+    
+    var showRecentMovies: some View {
+        
+        obtainTmdbDataFromApi(category: "Recent", query: "")
+        cashInIDSearchList(category: "Recent")
+        
+        return AnyView(NowPlayingList())
+
+    }
+
 
 }
 
@@ -92,74 +102,3 @@ struct MainSearchPage: View {
 
 
 
-/*import SwiftUI
-
-struct MainSearchPage: View {
-
-    var body: some View {
-
-        // Specify NavigationView on top containing ZStack and VStack
-
-        NavigationView {
-
-            ScrollView{
-            ZStack {    // Background View
-
-                Color.gray.opacity(0.1).edgesIgnoringSafeArea(.all)
-
-            VStack {    // Foreground View
-                
-                Image("SearchCocktails")
-                .resizable()
-                .frame(width: 200, height: 200, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                .aspectRatio(contentMode: .fit)
-                    .padding(.top, 30)
-                
-                NavigationLink(destination: FindMoviePage()) {
-
-                    HStack {
-
-                        Image(systemName: "magnifyingglass.circle")
-                            .imageScale(.large)
-                            .font(Font.title.weight(.regular))
-                            .foregroundColor(.blue)
-
-                        Text("Find a good movie to watch!")
-                            .font(.system(size: 16))
-
-                    }
-
-                }.padding(.trailing, 100)
-                
-                NavigationLink(destination: FindNationalParkPage()) {
-
-                    HStack {
-
-                        Image(systemName: "doc.text.magnifyingglass")
-                            .imageScale(.large)
-                            .font(Font.title.weight(.regular))
-                            .foregroundColor(.blue)
-
-                        Text("Plan a trip to a national park!")
-                            .font(.system(size: 16))
-
-                    }
-
-                }.padding(.trailing, 70)
-                
-
-
-            }   // End of VStack
-            .customNavigationViewStyle()
-
-            }   // End of ZStack
-          
-
-        }   // End of NavigationView
-    }
-        
-    }
-
-}*/
-
- 
