@@ -27,6 +27,12 @@ struct ContentView: View {
                     Image(systemName: "lasso.sparkles")
                     Text("Recreation")
                 }
+            
+            GadgetMainPage()
+                .tabItem{
+                    Image(systemName: "wrench.and.screwdriver.fill")
+                    Text("Gadgets")
+                }
            
      
         }   // End of TabView

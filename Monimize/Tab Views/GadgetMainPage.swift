@@ -8,13 +8,87 @@
 import SwiftUI
 
 struct GadgetMainPage: View {
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+
+        // Specify NavigationView on top containing ZStack and VStack
+
+        NavigationView {
+
+            ScrollView{
+            ZStack {    // Background View
+
+                Color.gray.opacity(0.1).edgesIgnoringSafeArea(.all)
+                
+                VStack {
+                    Image("Work")
+                    .resizable()
+                    .frame(width: 200, height: 200, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .aspectRatio(contentMode: .fit)
+                        .padding(.top, 30)
+                        .padding(.bottom, 50)
+            
+                VStack (alignment: .leading){    // Foreground View
+                
+                    NavigationLink(destination: CurrencyConverterPage()) {
+
+                        HStack {
+
+                            Image(systemName: "coloncurrencysign.square")
+
+                                .imageScale(.large)
+
+                                .font(Font.title.weight(.regular))
+
+                                .foregroundColor(.blue)
+
+                            Text("Currency Converter")
+
+                                .font(.system(size: 20))
+
+                        }
+
+                    }.padding(.trailing, 100)
+                
+                NavigationLink(destination: ScanQRBarcode()) {
+
+                    HStack {
+
+                        Image(systemName: "qrcode.viewfinder")
+
+                            .imageScale(.large)
+
+                            .font(Font.title.weight(.regular))
+
+                            .foregroundColor(.blue)
+
+                        Text("QR Code Scanner")
+
+                            .font(.system(size: 20))
+
+                    }
+
+                }
+                .padding(.trailing, 80)
+                .navigationBarTitle(Text("Gadgets!"), displayMode: .inline)
+                .padding(.bottom, 500)
+
+
+            }   // End of VStack
+            .customNavigationViewStyle()
+
+            }   // End of ZStack
+            }
+
+        }   // End of NavigationView
     }
+        
+    }
+    
+
 }
 
-struct GadgetMainPage_Previews: PreviewProvider {
-    static var previews: some View {
-        GadgetMainPage()
-    }
-}
+ 
+
+
+
