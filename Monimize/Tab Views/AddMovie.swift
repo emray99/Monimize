@@ -232,7 +232,7 @@ struct AddMovie: View {
      */
     func inputDataValidated() -> Bool {
  
-        if (self.itemCost == 0.00 || self.purchaseTime == Date() ) {
+        if (self.itemCost == 0.00) {
             return false
         }
        

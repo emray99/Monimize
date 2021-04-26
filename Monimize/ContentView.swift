@@ -16,6 +16,12 @@ struct ContentView: View {
                     Text("ForTesting")
                 }
             
+            SvaingPlanList()
+                .tabItem {
+                    Image(systemName: "magnifyingglass.circle")
+                    Text("Svaing Plans")
+                }
+            
             MainSearchPage()
                 .tabItem{
                     Image(systemName: "lasso.sparkles")

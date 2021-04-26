@@ -1,0 +1,33 @@
+[
+    {
+        "budgetName": "new Macbook1",
+        "budgetValue": 1099.99,
+        "currentSave": 299.33,
+        "budgetDescription": "Awesome Macbook gotta buy",
+        "expectDate": "2021-10-04",
+        "photoFilename": "ApplePark",
+        "photoLatitude": 0.00,
+        "photoLongitude": 0.00
+    },
+    {
+        "budgetName": "new Macbook2",
+        "budgetValue": 1099.99,
+        "currentSave": 99.33,
+        "budgetDescription": "Awesome Macbook gotta buy",
+        "expectDate": "2021-10-04",
+        "photoFilename": "ApplePark",
+        "photoLatitude": 0.00,
+        "photoLongitude": 0.00
+    },
+    {
+        "budgetName": "new Macbook3",
+        "budgetValue": 1099.99,
+        "currentSave": 399.33,
+        "budgetDescription": "Awesome Macbook gotta buy",
+        "expectDate": "2021-10-04",
+        "photoFilename": "ApplePark",
+        "photoLatitude": 0.00,
+        "photoLongitude": 0.00
+    }
+     
+]
