@@ -160,7 +160,6 @@ struct AddBudget: View {
                     if self.inputDataValidated() {
                         self.addNewBudget()
                         self.showBudgetAddedAlert = true
-                        userData.userAuthenticated = true
                     } else {
                         self.showInputDataMissingAlert = true
                     }
@@ -213,7 +212,7 @@ struct AddBudget: View {
         let newPhoto = BudgetPhoto(context: self.managedObjectContext)
         let currentGeolocation = currentLocation()
         if let imageData = self.photoImageData {
-            newPhoto.budgetPhoto = imageData
+            newPhoto.photoData = imageData
             newPhoto.latitude = NSNumber(value: currentGeolocation.latitude)
             newPhoto.longitude = NSNumber(value: currentGeolocation.longitude)
             //newPhoto.date = currentDateTime
@@ -226,7 +225,7 @@ struct AddBudget: View {
             let photoData = photoUIImage?.jpegData(compressionQuality: 1.0)
            
             // Assign photoData to Core Data entity attribute of type Data (Binary Data)
-            newPhoto.budgetPhoto = photoData!
+            newPhoto.photoData = photoData!
         }
         
         newBudget.photo = newPhoto

@@ -21,7 +21,7 @@ import CoreData
 // ❎ CoreData Photo entity public class
 public class BudgetPhoto: NSManagedObject, Identifiable {
  
-    @NSManaged public var budgetPhoto: Data?
+    @NSManaged public var photoData: Data?
     @NSManaged public var latitude: NSNumber?
     @NSManaged public var longitude: NSNumber?
     @NSManaged public var budget: Budget?

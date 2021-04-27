@@ -98,7 +98,7 @@ func populateBudgetDatabase() {
         let photoData = photoUIImage?.jpegData(compressionQuality: 1.0)
        
         // Assign photoData to Core Data entity attribute of type Data (Binary Data)
-        photoEntity.budgetPhoto = photoData!
+        photoEntity.photoData = photoData!
         photoEntity.latitude = NSNumber(value: data.photoLatitude)
         photoEntity.longitude = NSNumber(value: data.photoLongitude)
 
