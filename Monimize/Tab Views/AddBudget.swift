@@ -10,11 +10,11 @@ import SwiftUI
 struct AddBudget: View {
     @EnvironmentObject var userData: UserData
     @Environment(\.presentationMode) var presentationMode
+    // ❎ CoreData managedObjectContext reference
+    @Environment(\.managedObjectContext) var managedObjectContext
     @State private var title = ""
-    @State private var titleEntered = ""
     @State private var note = ""
     @State private var value = 0.0
-    @State private var valueEntered = 0.0
     @State private var showImagePicker = false
     @State private var showCurrencyPicker = false
     @State private var showBudgetAddedAlert = false
@@ -42,8 +42,7 @@ struct AddBudget: View {
                 Section(header: Text("Describe your budget"), footer:
                             Button(action: {
                                 self.dismissKeyboard()
-                                self.title = titleEntered
-                                self.value = valueEntered
+
                             }) {
                                 Image(systemName: "keyboard")
                                     .font(Font.title.weight(.light))
@@ -54,7 +53,7 @@ struct AddBudget: View {
                             Image(systemName: "textbox")
                                 .foregroundColor(Color.gray)
                                 .font(.system(size: 24, weight: .regular))
-                            TextField("Name", text: $titleEntered)
+                            TextField("Name", text: $title)
                                 .disableAutocorrection(true)
                                 .autocapitalization(.words)
                                 .padding(8)
@@ -65,7 +64,7 @@ struct AddBudget: View {
                             Image(systemName: "plusminus.circle")
                                 .foregroundColor(Color.gray)
                                 .font(.system(size: 26, weight: .regular))
-                            TextField("Amount", value: $valueEntered, formatter: moneyFormatter)
+                            TextField("Amount", value: $value, formatter: moneyFormatter)
                                 .keyboardType(.numbersAndPunctuation)
         
                             
@@ -190,13 +189,54 @@ struct AddBudget: View {
     }
     func inputDataValidated() -> Bool {
        
-        if self.titleEntered.isEmpty || self.valueEntered == 0 {
+        if self.title.isEmpty || self.value == 0 {
             return false
         }
        
         return true
     }
     func addNewBudget() {
+        let date = Date()
+        let currdateFormatter = DateFormatter()
+        currdateFormatter.dateFormat = "yyyy-MM-dd' at 'HH:mm:ss"
+        let currentDateTime = currdateFormatter.string(from: date)
+        
+        
+        let newBudget = Budget(context: self.managedObjectContext)
+        newBudget.title = self.title
+        newBudget.currency = self.currencyList[selectedIndex]
+        newBudget.amount = NSNumber(value: self.value)
+        newBudget.note = self.note
+        newBudget.audioFilename = ""
+        newBudget.date = currentDateTime
+        
+        let newPhoto = BudgetPhoto(context: self.managedObjectContext)
+        let currentGeolocation = currentLocation()
+        if let imageData = self.photoImageData {
+            newPhoto.budgetPhoto = imageData
+            newPhoto.latitude = NSNumber(value: currentGeolocation.latitude)
+            newPhoto.longitude = NSNumber(value: currentGeolocation.longitude)
+            //newPhoto.date = currentDateTime
+            
+        } else {
+            // Obtain the album cover default image from Assets.xcassets as UIImage
+            let photoUIImage = UIImage(named: "DefaultTripPhoto")
+           
+            // Convert photoUIImage to data of type Data (Binary Data) in JPEG format with 100% quality
+            let photoData = photoUIImage?.jpegData(compressionQuality: 1.0)
+           
+            // Assign photoData to Core Data entity attribute of type Data (Binary Data)
+            newPhoto.budgetPhoto = photoData!
+        }
+        
+        newBudget.photo = newPhoto
+        newPhoto.budget = newBudget
+        
+        do {
+            try self.managedObjectContext.save()
+        } catch {
+            return
+        }
         
     }
 }
