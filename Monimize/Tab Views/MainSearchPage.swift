@@ -50,6 +50,26 @@ struct MainSearchPage: View {
                     }
 
                 }.padding(.trailing, 100)
+                    
+                    NavigationLink(destination: NewsListPage()) {
+
+                        HStack {
+
+                            Image(systemName: "newspaper")
+
+                                .imageScale(.large)
+
+                                .font(Font.title.weight(.regular))
+
+                                .foregroundColor(.blue)
+
+                            Text("Read the lastest news!")
+
+                                .font(.system(size: 20))
+
+                        }
+
+                    }.padding(.trailing, 100)
                 
                 NavigationLink(destination: FindNationalParkPage()) {
 
