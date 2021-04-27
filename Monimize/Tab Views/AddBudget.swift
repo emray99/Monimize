@@ -154,7 +154,7 @@ struct AddBudget: View {
                 
             } // End of Form
             .alert(isPresented: $showInputDataMissingAlert, content: { self.inputDataMissingAlert })
-            .navigationBarTitle(Text("Add New Budget"), displayMode: .inline)
+            .navigationBarTitle(Text("Add New Expense"), displayMode: .inline)
             .navigationBarItems(trailing:
                 Button(action: {
                     if self.inputDataValidated() {
@@ -172,7 +172,7 @@ struct AddBudget: View {
     }
     var budgetAddedAlert: Alert {
         Alert(title: Text("Trip Added!"),
-              message: Text("New budget is added to the list."),
+              message: Text("New expense is added to the list."),
               dismissButton: .default(Text("OK")){
                 // Dismiss this Modal View and go back to the previous view in the navigation hierarchy
                 self.presentationMode.wrappedValue.dismiss()

@@ -26,7 +26,7 @@ struct ListView: View {
                 .onDelete(perform: delete)
                
             }   // End of List
-            .navigationBarTitle(Text("My Budgets"), displayMode: .inline)
+            .navigationBarTitle(Text("My Expenses"), displayMode: .inline)
            
             // Place the Edit button on left and Add (+) button on right of the navigation bar
             .navigationBarItems(leading: EditButton(), trailing:

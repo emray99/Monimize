@@ -18,7 +18,7 @@ struct ContentView: View {
             Budgets()
                 .tabItem {
                     Image(systemName: "dollarsign.circle")
-                    Text("Budgets")
+                    Text("Expenses")
                 }
             
             SvaingPlanList()
