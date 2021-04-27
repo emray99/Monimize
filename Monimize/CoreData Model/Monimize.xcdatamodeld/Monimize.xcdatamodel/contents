@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20C69" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20B29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Item" representedClassName=".Item" syncable="YES">
         <attribute name="itemCost" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="itemDescription" optional="YES" attributeType="String"/>
@@ -15,8 +15,24 @@
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <relationship name="item" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Item" inverseName="photo" inverseEntity="Item"/>
     </entity>
+    <entity name="SavingItem" representedClassName=".SavingItem" syncable="YES">
+        <attribute name="budgetDescription" optional="YES" attributeType="String"/>
+        <attribute name="budgetName" optional="YES" attributeType="String"/>
+        <attribute name="budgetValue" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="currentSave" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="expectDate" optional="YES" attributeType="String"/>
+        <relationship name="savingPhoto" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SavingItemPhoto" inverseName="savingItem" inverseEntity="SavingItemPhoto"/>
+    </entity>
+    <entity name="SavingItemPhoto" representedClassName=".SavingItemPhoto" syncable="YES">
+        <attribute name="savingLatitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="savingLongitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="savingPhoto" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <relationship name="savingItem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SavingItem" inverseName="savingPhoto" inverseEntity="SavingItem"/>
+    </entity>
     <elements>
         <element name="Item" positionX="-45" positionY="0" width="128" height="134"/>
-        <element name="Photo" positionX="-18" positionY="63" width="128" height="89"/>
+        <element name="Photo" positionX="204.99267578125" positionY="174.7698974609375" width="128" height="89"/>
+        <element name="SavingItem" positionX="39.491943359375" positionY="371.1708374023438" width="128" height="133"/>
+        <element name="SavingItemPhoto" positionX="389.396728515625" positionY="189.1828002929688" width="128" height="89"/>
     </elements>
 </model>
