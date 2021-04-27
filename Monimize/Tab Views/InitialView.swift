@@ -13,7 +13,7 @@ struct InitialView: View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false){
                 VStack(alignment: .center) {
-                    Text("You should create budgets in order to keep track of your expenses in specific areas like Car Expenses, House expenses, Food expenses, and so on. Click the New Budget button to start.")
+                    Text("You should create budgets in order to keep track of your expenses in specific areas like Car Expenses, House expenses, Food expenses, and so on. Click the New Expense button to start.")
                         .fontWeight(.light)
                         .multilineTextAlignment(.center)
                         .lineSpacing(6)
@@ -25,7 +25,7 @@ struct InitialView: View {
                                 //.frame(width: 360)
                                 .foregroundColor(.blue)
                                 
-                            Text("New Budget")
+                            Text("New Expense")
                                 
                                 .foregroundColor(.blue)
                         }
