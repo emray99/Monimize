@@ -20,10 +20,6 @@ struct Budgets: View {
         }
        
     }
-    
-  
-    
-    
 }
 
 struct Budgets_Previews: PreviewProvider {

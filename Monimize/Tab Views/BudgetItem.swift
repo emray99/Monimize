@@ -1,5 +1,5 @@
 //
-//  BudgetDetails.swift
+//  BudgetItem.swift
 //  Monimize
 //
 //  Created by Eric Li on 4/27/21.
@@ -7,30 +7,32 @@
 
 import SwiftUI
 
-struct BudgetDetails: View {
+struct BudgetItem: View {
     let budget: Budget
     @FetchRequest(fetchRequest: Budget.allBudgetsFetchRequest()) var allBudgets: FetchedResults<Budget>
     @EnvironmentObject var userData: UserData
     var body: some View {
-        Form {
-            Section(header: Text("Budget Title")) {
+        HStack {
+            // This public function is given in UtilityFunctions.swift
+            Image("\(budget.category)")
+            
+            VStack(alignment: .leading) {
+                /*
+                ?? is called nil coalescing operator.
+                IF song.artistName is not nil THEN
+                    unwrap it and return its value
+                ELSE return ""
+                */
                 Text(budget.title ?? "")
-            }
-            
-            Section(header: Text("Budget Photo")) {
-                // This public function is given in UtilityFunctions.swift
-                getImageFromBinaryData(binaryData: budget.photo!.photoData!, defaultFilename: "DefaultTripPhoto")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(minWidth: 300, maxWidth: 500, alignment: .center)
-            }
-            
-            Section(header: Text("Budget Amount")) {
+
+                
                 budgetAmount
+
+                Text(budget.currency ?? "")
+
             }
-        } // End of Form
-        .navigationBarTitle(Text("Budget Details"), displayMode: .inline)
-        .font(.system(size: 14))
+            .font(.system(size: 14))
+        }
     }
     var budgetAmount: Text {
            let amount = budget.amount!.doubleValue
@@ -45,4 +47,5 @@ struct BudgetDetails: View {
            return Text(bAmount)
        }
 }
+
 
