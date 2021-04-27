@@ -15,6 +15,7 @@ struct BudgetStruct: Decodable {
     var currency: String
     var amount: Double
     var note: String
+    var category: String
     var audioFilename: String
     var date: String
     var photoFilename: String

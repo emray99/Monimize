@@ -23,7 +23,7 @@ struct AddBudget: View {
     @State private var photoTakeOrPickIndex = 1
     let currencyList = ["USD", "AUD", "CAD", "EUR", "GBP", "JPY"]
     let currencyDict = ["USD": "$", "AUD": "A$", "CAD": "C$", "EUR": "€", "GBP": "£", "JPY": "¥"]
-    let categoryList = ["Automobile", "Bills", "Clothing", "Digital", "Education", "Fees", "Food & Dining" , "Health Care", "Housing", "Leisure", "Loans"]
+    let categoryList = ["Automobile", "Bills", "Grocery", "Clothing", "Digital", "Education", "Fees", "Food & Dining" , "Health Care", "Housing", "Leisure", "Loans", "Other"]
     @State private var categoryIndex = 0
     var photoTakeOrPickChoices = ["Camera", "Photo Library"]
     @State private var selectedIndex = 0  // Brandy
@@ -206,6 +206,7 @@ struct AddBudget: View {
         newBudget.currency = self.currencyList[selectedIndex]
         newBudget.amount = NSNumber(value: self.value)
         newBudget.note = self.note
+        newBudget.category = self.categoryList[categoryIndex]
         newBudget.audioFilename = ""
         newBudget.date = currentDateTime
         

@@ -25,6 +25,7 @@ public class Budget: NSManagedObject, Identifiable {
     @NSManaged public var currency: String?
     @NSManaged public var amount: NSNumber?
     @NSManaged public var note: String?
+    @NSManaged public var category: String?
     @NSManaged public var audioFilename: String?
     @NSManaged public var date: String?
     @NSManaged public var photo: BudgetPhoto?
@@ -87,6 +88,8 @@ extension Budget {
             fetchRequest.predicate = NSPredicate(format: "date CONTAINS[c] %@", searchQuery)
         case "Budget Note":
             fetchRequest.predicate = NSPredicate(format: "note CONTAINS[c] %@", searchQuery)
+        case "Budget Category":
+            fetchRequest.predicate = NSPredicate(format: "category CONTAINS[c] %@", searchQuery)
        
         default:
             print("Search category is out of range")

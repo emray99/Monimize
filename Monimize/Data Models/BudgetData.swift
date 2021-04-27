@@ -79,6 +79,7 @@ func populateBudgetDatabase() {
         budgetEntity.amount = NSNumber(value: data.amount)
         budgetEntity.currency = data.currency
         budgetEntity.note = data.note
+        budgetEntity.category = data.category
         budgetEntity.date = data.date
 
  
