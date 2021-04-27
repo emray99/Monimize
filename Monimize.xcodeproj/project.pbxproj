@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		072987182630763B0078FF8B /* ExpenseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072987172630763B0078FF8B /* ExpenseList.swift */; };
+		075DB1822637C23F008936D1 /* Budgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075DB1812637C23F008936D1 /* Budgets.swift */; };
 		5C46BD86262FBA490052EA29 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C46BD85262FBA490052EA29 /* WebView.swift */; };
 		5C46BD8A262FBA620052EA29 /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C46BD89262FBA620052EA29 /* UtilityFunctions.swift */; };
 		5C46BD8D262FBA980052EA29 /* SearchResultsEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C46BD8C262FBA980052EA29 /* SearchResultsEmpty.swift */; };
@@ -75,7 +75,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		072987172630763B0078FF8B /* ExpenseList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseList.swift; sourceTree = "<group>"; };
+		075DB1812637C23F008936D1 /* Budgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budgets.swift; sourceTree = "<group>"; };
 		5C46BD85262FBA490052EA29 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		5C46BD89262FBA620052EA29 /* UtilityFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFunctions.swift; sourceTree = "<group>"; };
 		5C46BD8C262FBA980052EA29 /* SearchResultsEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsEmpty.swift; sourceTree = "<group>"; };
@@ -162,7 +162,6 @@
 				07298720263077140078FF8B /* Recreation */,
 				0729871F263077090078FF8B /* Gadgets */,
 				0729871E263077000078FF8B /* Home */,
-				0729871C263076C90078FF8B /* My Expense */,
 				0729871B263076C30078FF8B /* Saving Plan */,
 			);
 			path = "Tab Views";
@@ -180,17 +179,10 @@
 			name = "Saving Plan";
 			sourceTree = "<group>";
 		};
-		0729871C263076C90078FF8B /* My Expense */ = {
-			isa = PBXGroup;
-			children = (
-				072987172630763B0078FF8B /* ExpenseList.swift */,
-			);
-			name = "My Expense";
-			sourceTree = "<group>";
-		};
 		0729871E263077000078FF8B /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				075DB1812637C23F008936D1 /* Budgets.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -453,7 +445,6 @@
 				5C46BDB8262FCEE10052EA29 /* UserData.swift in Sources */,
 				5C46BE21263652E20052EA29 /* CircleProgressBar.swift in Sources */,
 				5C5C5F0B26377E4100A31426 /* NewsApiData.swift in Sources */,
-				072987182630763B0078FF8B /* ExpenseList.swift in Sources */,
 				5C46BDEB26361E6E0052EA29 /* OmdbAPI.swift in Sources */,
 				5C46BDFE263621110052EA29 /* CharacterItem.swift in Sources */,
 				5C46BD90262FBB1A0052EA29 /* NavigationStyle.swift in Sources */,
@@ -492,6 +483,7 @@
 				5C46BDAB262FCA590052EA29 /* PhotoCaptureView.swift in Sources */,
 				5C46BDCD263510F20052EA29 /* NationalParkApiData.swift in Sources */,
 				5C46BE0126362E710052EA29 /* AddMovie.swift in Sources */,
+				075DB1822637C23F008936D1 /* Budgets.swift in Sources */,
 				5C5C5F18263786EB00A31426 /* NewsDetails.swift in Sources */,
 				5C46BE162636529D0052EA29 /* SavingItem.swift in Sources */,
 				5C46BDB5262FCED40052EA29 /* ItemDataStruct.swift in Sources */,
@@ -645,14 +637,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Monimize/Preview Content\"";
-				DEVELOPMENT_TEAM = 4WB3653G9Y;
+				DEVELOPMENT_TEAM = MW72GGU2YX;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Monimize/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rayliu.Monimize;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zihaoli.Monimize;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -666,14 +658,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Monimize/Preview Content\"";
-				DEVELOPMENT_TEAM = 4WB3653G9Y;
+				DEVELOPMENT_TEAM = MW72GGU2YX;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Monimize/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rayliu.Monimize;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zihaoli.Monimize;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

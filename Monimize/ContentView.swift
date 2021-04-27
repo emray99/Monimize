@@ -10,6 +10,11 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
+            Budgets()
+                .tabItem {
+                    Image(systemName: "dollarsign.circle")
+                    Text("Budgets")
+                }
             TestItemList()
                 .tabItem {
                     Image(systemName: "house.fill")
