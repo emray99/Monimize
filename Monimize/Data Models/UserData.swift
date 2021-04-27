@@ -11,7 +11,7 @@ final class UserData: ObservableObject {
   
     // ❎ Subscribe to notification that the managedObjectContext completed a save
     @Published var savedInDatabase =  NotificationCenter.default.publisher(for: .NSManagedObjectContextDidSave)
-    
+    var userAuthenticated = true
    
  
 }
