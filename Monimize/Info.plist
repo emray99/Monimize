@@ -53,6 +53,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>Monimize needs to access camera so that you can take a photo!</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Monimize needs to access your Photo library so that you can pick a photo!</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

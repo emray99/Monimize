@@ -8,19 +8,18 @@
 import SwiftUI
 
 struct InitialView: View {
-    @State private var showBudgetSettings = false
+    @State private var showSheet = false
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false){
                 VStack(alignment: .center) {
-                    Text("You should create budgets in order to kepp track of your expenses in specific areas like Car Expenses, House expenses, Food expenses, and so on. Click the New Budget button to start.")
+                    Text("You should create budgets in order to keep track of your expenses in specific areas like Car Expenses, House expenses, Food expenses, and so on. Click the New Budget button to start.")
                         .fontWeight(.light)
                         .multilineTextAlignment(.center)
                         .lineSpacing(6)
                         .padding(.top, 230)
                         .padding()
-                    
-                    NavigationLink(destination: AddBudget()) {
+                    Button(action: {self.showSheet.toggle()}) {
                         HStack {
                             Image(systemName: "plus")
                                 //.frame(width: 360)
@@ -33,6 +32,22 @@ struct InitialView: View {
                         .frame(width: 320, height: 50)
                         .background(Color.gray.opacity(0.1).edgesIgnoringSafeArea(.all))
                     }
+                    .sheet(isPresented: $showSheet) {
+                        AddBudget()
+                    }
+//                    NavigationLink(destination: AddBudget()) {
+//                        HStack {
+//                            Image(systemName: "plus")
+//                                //.frame(width: 360)
+//                                .foregroundColor(.blue)
+//
+//                            Text("New Budget")
+//
+//                                .foregroundColor(.blue)
+//                        }
+//                        .frame(width: 320, height: 50)
+//                        .background(Color.gray.opacity(0.1).edgesIgnoringSafeArea(.all))
+//                    }
                     .cornerRadius(24.0)
                 }
             }
@@ -44,10 +59,12 @@ struct InitialView: View {
 //        ActionSheet(title: Text("Budget Settings"),
 //                    //message: Text("Select Map Type"),
 //                    buttons: [
-//                        .default(Text("Expense")) {
+//                        .default(Text("Expense"),action: self.showSheet.toggle()) {
 //                            //self.flag = true
+//                            
+//                            //self.showBudgetSettings = false
+//                        }.sheet(isPresented: $showSheet) {
 //                            AddBudget()
-//                            self.showBudgetSettings = false
 //                        },
 //                        .default(Text("Income")) {
 //                            //self.selectedMapType = MKMapType.satellite
