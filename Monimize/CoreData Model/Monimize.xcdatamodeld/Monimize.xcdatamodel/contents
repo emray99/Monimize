@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20B29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19H524" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Budget" representedClassName=".Budget" syncable="YES">
+        <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="audioFilename" optional="YES" attributeType="String"/>
+        <attribute name="currency" optional="YES" attributeType="String"/>
+        <attribute name="date" optional="YES" attributeType="String"/>
+        <attribute name="note" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="photo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BudgetPhoto" inverseName="budget" inverseEntity="BudgetPhoto"/>
+    </entity>
+    <entity name="BudgetPhoto" representedClassName=".BudgetPhoto" syncable="YES">
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="photoData" optional="YES" attributeType="Binary"/>
+        <relationship name="budget" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Budget" inverseName="photo" inverseEntity="Budget"/>
+    </entity>
     <entity name="Item" representedClassName=".Item" syncable="YES">
         <attribute name="itemCost" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="itemDescription" optional="YES" attributeType="String"/>
@@ -34,5 +49,7 @@
         <element name="Photo" positionX="204.99267578125" positionY="174.7698974609375" width="128" height="89"/>
         <element name="SavingItem" positionX="39.491943359375" positionY="371.1708374023438" width="128" height="133"/>
         <element name="SavingItemPhoto" positionX="389.396728515625" positionY="189.1828002929688" width="128" height="89"/>
+        <element name="Budget" positionX="180" positionY="171" width="128" height="148"/>
+        <element name="BudgetPhoto" positionX="189" positionY="180" width="128" height="103"/>
     </elements>
 </model>

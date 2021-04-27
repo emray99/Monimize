@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AddBudget: View {
+    @EnvironmentObject var userData: UserData
     @Environment(\.presentationMode) var presentationMode
     @State private var title = ""
     @State private var titleEntered = ""
@@ -65,7 +66,7 @@ struct AddBudget: View {
                                 .foregroundColor(Color.gray)
                                 .font(.system(size: 26, weight: .regular))
                             TextField("Amount", value: $valueEntered, formatter: moneyFormatter)
-                                .keyboardType(.decimalPad)
+                                .keyboardType(.numbersAndPunctuation)
         
                             
                             Button(action: {
@@ -160,6 +161,7 @@ struct AddBudget: View {
                     if self.inputDataValidated() {
                         self.addNewBudget()
                         self.showBudgetAddedAlert = true
+                        userData.userAuthenticated = true
                     } else {
                         self.showInputDataMissingAlert = true
                     }
@@ -188,7 +190,7 @@ struct AddBudget: View {
     }
     func inputDataValidated() -> Bool {
        
-        if self.title.isEmpty || self.value == 0 {
+        if self.titleEntered.isEmpty || self.valueEntered == 0 {
             return false
         }
        
