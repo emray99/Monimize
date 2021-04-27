@@ -17,7 +17,7 @@ struct InitialView: View {
                         .fontWeight(.light)
                         .multilineTextAlignment(.center)
                         .lineSpacing(6)
-                        .padding(.top, 230)
+                        .padding(.top, 200)
                         .padding()
                     Button(action: {self.showSheet.toggle()}) {
                         HStack {
