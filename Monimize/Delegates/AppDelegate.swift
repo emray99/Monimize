@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         obtainNewsDataFromApi(query: "fas")
         createExpenseDatabase()
+        createBudgetDatabase()
         obtainAllCurrenciesFromApi()
        
         

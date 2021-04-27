@@ -220,7 +220,7 @@ struct AddBudget: View {
             
         } else {
             // Obtain the album cover default image from Assets.xcassets as UIImage
-            let photoUIImage = UIImage(named: "DefaultTripPhoto")
+            let photoUIImage = UIImage(named: "ImageUnavailable")
            
             // Convert photoUIImage to data of type Data (Binary Data) in JPEG format with 100% quality
             let photoData = photoUIImage?.jpegData(compressionQuality: 1.0)

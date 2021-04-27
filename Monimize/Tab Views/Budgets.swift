@@ -9,10 +9,11 @@ import SwiftUI
 
 struct Budgets: View {
    
-    @State private var flag = false
+    @Environment(\.managedObjectContext) var managedObjectContext
+    @FetchRequest(fetchRequest: Budget.allBudgetsFetchRequest()) var allBudgets: FetchedResults<Budget>
     @EnvironmentObject var userData: UserData
     var body: some View {
-        if userData.userAuthenticated {
+        if allBudgets.count != 0 {
             return AnyView(ListView())
         } else {
             return AnyView(InitialView())

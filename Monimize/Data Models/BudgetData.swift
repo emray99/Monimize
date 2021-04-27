@@ -18,7 +18,7 @@ fileprivate var budgetDataStructList = [BudgetStruct]()
  */
 public func createBudgetDatabase() {
  
-    budgetDataStructList = decodeJsonFileIntoArrayOfStructs(fullFilename: "BudgetData.json", fileLocation: "Main Bundle")
+    budgetDataStructList = decodeJsonFileIntoArrayOfStructs(fullFilename: "BudgetDataM.json", fileLocation: "Main Bundle")
    
     populateBudgetDatabase()
 }
@@ -58,7 +58,7 @@ func populateBudgetDatabase() {
    
     if listOfAllBudgetEntitiesInDatabase.count > 0 {
         // Database has already been populated
-        print("Database has already been populated!")
+        print("Budget Database has already been populated!")
         return
     }
    
