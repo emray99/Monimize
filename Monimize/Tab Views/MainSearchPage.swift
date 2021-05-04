@@ -75,7 +75,7 @@ struct MainSearchPage: View {
 
                         HStack {
 
-                            Image(systemName: "person.3.fill")
+                            Image(systemName: "flame")
 
                                 .imageScale(.large)
 
