@@ -53,6 +53,7 @@ struct AddSavingPlan: View {
     }()
    
     var body: some View {
+        NavigationView{
         Form {
             Group {
                 Section(header: Text("Plan title")) {
@@ -159,6 +160,8 @@ struct AddSavingPlan: View {
                              photoImageData: self.$photoImageData,
                              cameraOrLibrary: self.photoTakeOrPickChoices[self.photoTakeOrPickIndex])
         }
+    }
+    
        
     }   // End of body
     

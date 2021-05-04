@@ -266,7 +266,16 @@ public func obtainNewsDataFromApi(query: String) {
                 
                 if let newsCategory = singleNewsJsonObject["category"] as? [Any] {
                     
-                    category = newsCategory.first as! String
+                    if (newsCategory.count == 0)
+                    {
+                        
+                        category = "Undefined"
+                    }
+                    else
+                    {
+                        category = newsCategory.first as! String
+                    }
+                    
                 }
                 
                 if let newsImage = singleNewsJsonObject["image"] as? String {

@@ -87,11 +87,12 @@ struct SavingDetails: View {
                 
             }
             Section(header: Text("Target Budget")) {
-                Text(saving.budgetValue!.stringValue)
+                Text(addUSDSymbol(number: saving.budgetValue!))
             }
             
             Section(header: Text("Current Saving Money")) {
-                Text(saving.currentSave!.stringValue)
+                //Text(saving.currentSave!.stringValue)
+                Text(addUSDSymbol(number: saving.currentSave!))
             }
       
             Section(header: Text("Except budget Date")) {
@@ -153,5 +154,13 @@ public func getSavingPercent(saving: SavingItem) -> Double{
     let target = Double(saving.budgetValue!)
     let result = (current / target) * 100
     return result
+}
+
+public func addUSDSymbol(number: NSNumber) -> String{
+    var stringWithSymbol = number.stringValue
+    stringWithSymbol.append(" $")
+    
+    return stringWithSymbol
+    
 }
  

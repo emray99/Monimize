@@ -49,6 +49,26 @@ struct GadgetMainPage: View {
                         }
 
                     }.padding(.trailing, 100)
+                    
+                    NavigationLink(destination: Settings()) {
+
+                        HStack {
+
+                            Image(systemName: "gear")
+
+                                .imageScale(.large)
+
+                                .font(Font.title.weight(.regular))
+
+                                .foregroundColor(.blue)
+
+                            Text("Password Reset")
+
+                                .font(.system(size: 20))
+
+                        }
+
+                    }.padding(.trailing, 100)
                 
                 NavigationLink(destination: ScanQRBarcode()) {
 

@@ -206,8 +206,8 @@
             filePath = "Monimize/API Data/NewsApiData.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "278"
-            endingLineNumber = "278"
+            startingLineNumber = "287"
+            endingLineNumber = "287"
             landmarkName = "obtainNewsDataFromApi(query:)"
             landmarkType = "9">
          </BreakpointContent>

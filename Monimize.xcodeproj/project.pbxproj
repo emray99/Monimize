@@ -68,6 +68,12 @@
 		5C5C5F15263786E200A31426 /* NewsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5C5F14263786E200A31426 /* NewsItem.swift */; };
 		5C5C5F18263786EB00A31426 /* NewsDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5C5F17263786EB00A31426 /* NewsDetails.swift */; };
 		5C5C5F2D2637915800A31426 /* Monimize.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5C5C5F2B2637915800A31426 /* Monimize.xcdatamodeld */; };
+		5C5EA0D72640E28500BE6AD5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5EA0D62640E28500BE6AD5 /* LoginView.swift */; };
+		5C5EA0DA2640E29E00BE6AD5 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5EA0D92640E29E00BE6AD5 /* MainView.swift */; };
+		5C5EA0E12640E3C700BE6AD5 /* SavingInitialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5EA0E02640E3C700BE6AD5 /* SavingInitialView.swift */; };
+		5C5EA0E42640E3F000BE6AD5 /* SavingTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5EA0E32640E3F000BE6AD5 /* SavingTabView.swift */; };
+		5C5EA0E72640E45B00BE6AD5 /* PasswordSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5EA0E62640E45B00BE6AD5 /* PasswordSet.swift */; };
+		5C5EA0EA2640E5E800BE6AD5 /* PasswordReset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5EA0E92640E5E800BE6AD5 /* PasswordReset.swift */; };
 		5C9758BD263769FE00EAF28F /* GadgetMainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9758BC263769FE00EAF28F /* GadgetMainPage.swift */; };
 		5C9758C026376A1700EAF28F /* QRCodePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9758BF26376A1700EAF28F /* QRCodePage.swift */; };
 		5C9758C626376A3200EAF28F /* CurrencyConverterPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9758C526376A3200EAF28F /* CurrencyConverterPage.swift */; };
@@ -147,6 +153,12 @@
 		5C5C5F14263786E200A31426 /* NewsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsItem.swift; sourceTree = "<group>"; };
 		5C5C5F17263786EB00A31426 /* NewsDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetails.swift; sourceTree = "<group>"; };
 		5C5C5F2C2637915800A31426 /* Monimize.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Monimize.xcdatamodel; sourceTree = "<group>"; };
+		5C5EA0D62640E28500BE6AD5 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		5C5EA0D92640E29E00BE6AD5 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		5C5EA0E02640E3C700BE6AD5 /* SavingInitialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingInitialView.swift; sourceTree = "<group>"; };
+		5C5EA0E32640E3F000BE6AD5 /* SavingTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingTabView.swift; sourceTree = "<group>"; };
+		5C5EA0E62640E45B00BE6AD5 /* PasswordSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordSet.swift; sourceTree = "<group>"; };
+		5C5EA0E92640E5E800BE6AD5 /* PasswordReset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordReset.swift; sourceTree = "<group>"; };
 		5C9758BC263769FE00EAF28F /* GadgetMainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GadgetMainPage.swift; sourceTree = "<group>"; };
 		5C9758BF26376A1700EAF28F /* QRCodePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodePage.swift; sourceTree = "<group>"; };
 		5C9758C526376A3200EAF28F /* CurrencyConverterPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterPage.swift; sourceTree = "<group>"; };
@@ -198,6 +210,8 @@
 				5C46BE0D263652310052EA29 /* SavingDetails.swift */,
 				5C46BE0B263652310052EA29 /* SavingListItem.swift */,
 				5C46BE0A263652310052EA29 /* SvaingPlanList.swift */,
+				5C5EA0E02640E3C700BE6AD5 /* SavingInitialView.swift */,
+				5C5EA0E32640E3F000BE6AD5 /* SavingTabView.swift */,
 			);
 			name = "Saving Plan";
 			sourceTree = "<group>";
@@ -221,6 +235,7 @@
 				5C9758BC263769FE00EAF28F /* GadgetMainPage.swift */,
 				5C9758BF26376A1700EAF28F /* QRCodePage.swift */,
 				5C9758C526376A3200EAF28F /* CurrencyConverterPage.swift */,
+				5C5EA0E62640E45B00BE6AD5 /* PasswordSet.swift */,
 			);
 			name = Gadgets;
 			sourceTree = "<group>";
@@ -250,6 +265,9 @@
 			isa = PBXGroup;
 			children = (
 				075DB1A72638551D008936D1 /* Home.swift */,
+				5C5EA0D62640E28500BE6AD5 /* LoginView.swift */,
+				5C5EA0D92640E29E00BE6AD5 /* MainView.swift */,
+				5C5EA0E92640E5E800BE6AD5 /* PasswordReset.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -480,8 +498,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C9758D026376E1700EAF28F /* BarcodeScanner.swift in Sources */,
+				5C5EA0DA2640E29E00BE6AD5 /* MainView.swift in Sources */,
 				5C46BD8D262FBA980052EA29 /* SearchResultsEmpty.swift in Sources */,
 				5C46BDF8263620420052EA29 /* MovieDetails.swift in Sources */,
+				5C5EA0D72640E28500BE6AD5 /* LoginView.swift in Sources */,
 				5C46BDA4262FC6230052EA29 /* Item.swift in Sources */,
 				5C9758D426376E2700EAF28F /* ScanviewControl.swift in Sources */,
 				5C46BDB8262FCEE10052EA29 /* UserData.swift in Sources */,
@@ -501,12 +521,15 @@
 				075DB18B2637D351008936D1 /* InitialView.swift in Sources */,
 				5C9758D726376E3600EAF28F /* ScanFocusRegion.swift in Sources */,
 				075DB18E2637D3EC008936D1 /* ListView.swift in Sources */,
+				5C5EA0E12640E3C700BE6AD5 /* SavingInitialView.swift in Sources */,
+				5C5EA0E72640E45B00BE6AD5 /* PasswordSet.swift in Sources */,
 				5C9758BD263769FE00EAF28F /* GadgetMainPage.swift in Sources */,
 				075DB19B2638515D008936D1 /* Budget.swift in Sources */,
 				5C46BDDF26353DEE0052EA29 /* ParkItem.swift in Sources */,
 				5C46BE08263651D40052EA29 /* SavingStruct.swift in Sources */,
 				5C46BD8A262FBA620052EA29 /* UtilityFunctions.swift in Sources */,
 				5C46BDE826361E350052EA29 /* TmdbAPI.swift in Sources */,
+				5C5EA0EA2640E5E800BE6AD5 /* PasswordReset.swift in Sources */,
 				5C46BDD02635148F0052EA29 /* ParkStruct.swift in Sources */,
 				5C46BDE226353DF90052EA29 /* ParkDetails.swift in Sources */,
 				5C9758EB2637711500EAF28F /* CurrencyApiData.swift in Sources */,
@@ -514,6 +537,7 @@
 				5C46BE12263652310052EA29 /* SavingDetails.swift in Sources */,
 				5C5C5F12263786D800A31426 /* NewsList.swift in Sources */,
 				5C46BDA7262FC7750052EA29 /* Photo.swift in Sources */,
+				5C5EA0E42640E3F000BE6AD5 /* SavingTabView.swift in Sources */,
 				5C9758C026376A1700EAF28F /* QRCodePage.swift in Sources */,
 				5C46BDD32635361F0052EA29 /* MainSearchPage.swift in Sources */,
 				5C46BDD9263537930052EA29 /* FindNationalParkPage.swift in Sources */,
