@@ -74,6 +74,12 @@
 		5C5EA0E42640E3F000BE6AD5 /* SavingTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5EA0E32640E3F000BE6AD5 /* SavingTabView.swift */; };
 		5C5EA0E72640E45B00BE6AD5 /* PasswordSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5EA0E62640E45B00BE6AD5 /* PasswordSet.swift */; };
 		5C5EA0EA2640E5E800BE6AD5 /* PasswordReset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5EA0E92640E5E800BE6AD5 /* PasswordReset.swift */; };
+		5C5EA0ED2641D75A00BE6AD5 /* YelpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5EA0EC2641D75A00BE6AD5 /* YelpAPI.swift */; };
+		5C5EA0F02641D78C00BE6AD5 /* ResStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5EA0EF2641D78C00BE6AD5 /* ResStruct.swift */; };
+		5C5EA0F42641E80000BE6AD5 /* RestList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5EA0F32641E80000BE6AD5 /* RestList.swift */; };
+		5C5EA0F82641E80800BE6AD5 /* RestItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5EA0F72641E80800BE6AD5 /* RestItem.swift */; };
+		5C5EA0FB2641E81300BE6AD5 /* RestDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5EA0FA2641E81300BE6AD5 /* RestDetails.swift */; };
+		5C5EA0FE2641EB8600BE6AD5 /* RestSearchPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5EA0FD2641EB8600BE6AD5 /* RestSearchPage.swift */; };
 		5C9758BD263769FE00EAF28F /* GadgetMainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9758BC263769FE00EAF28F /* GadgetMainPage.swift */; };
 		5C9758C026376A1700EAF28F /* QRCodePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9758BF26376A1700EAF28F /* QRCodePage.swift */; };
 		5C9758C626376A3200EAF28F /* CurrencyConverterPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9758C526376A3200EAF28F /* CurrencyConverterPage.swift */; };
@@ -159,6 +165,12 @@
 		5C5EA0E32640E3F000BE6AD5 /* SavingTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingTabView.swift; sourceTree = "<group>"; };
 		5C5EA0E62640E45B00BE6AD5 /* PasswordSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordSet.swift; sourceTree = "<group>"; };
 		5C5EA0E92640E5E800BE6AD5 /* PasswordReset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordReset.swift; sourceTree = "<group>"; };
+		5C5EA0EC2641D75A00BE6AD5 /* YelpAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpAPI.swift; sourceTree = "<group>"; };
+		5C5EA0EF2641D78C00BE6AD5 /* ResStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResStruct.swift; sourceTree = "<group>"; };
+		5C5EA0F32641E80000BE6AD5 /* RestList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestList.swift; sourceTree = "<group>"; };
+		5C5EA0F72641E80800BE6AD5 /* RestItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestItem.swift; sourceTree = "<group>"; };
+		5C5EA0FA2641E81300BE6AD5 /* RestDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestDetails.swift; sourceTree = "<group>"; };
+		5C5EA0FD2641EB8600BE6AD5 /* RestSearchPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestSearchPage.swift; sourceTree = "<group>"; };
 		5C9758BC263769FE00EAF28F /* GadgetMainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GadgetMainPage.swift; sourceTree = "<group>"; };
 		5C9758BF26376A1700EAF28F /* QRCodePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodePage.swift; sourceTree = "<group>"; };
 		5C9758C526376A3200EAF28F /* CurrencyConverterPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterPage.swift; sourceTree = "<group>"; };
@@ -192,6 +204,7 @@
 		0729871A263076AA0078FF8B /* Tab Views */ = {
 			isa = PBXGroup;
 			children = (
+				5C5EA0F22641E7EE00BE6AD5 /* Yelp */,
 				075DB1A1263854D5008936D1 /* Home */,
 				5C46BDC12634ECE00052EA29 /* TestBar */,
 				07298720263077140078FF8B /* Recreation */,
@@ -317,6 +330,7 @@
 				5C46BDE726361E350052EA29 /* TmdbAPI.swift */,
 				5C46BDEA26361E6E0052EA29 /* OmdbAPI.swift */,
 				5C5C5F0A26377E4100A31426 /* NewsApiData.swift */,
+				5C5EA0EC2641D75A00BE6AD5 /* YelpAPI.swift */,
 			);
 			name = "API Data";
 			path = "Monimize/API Data";
@@ -337,6 +351,7 @@
 				5C5C5F0726377D8F00A31426 /* NewsStruct.swift */,
 				075DB19426384EF8008936D1 /* BudgetStruct.swift */,
 				075DB197263850C8008936D1 /* BudgetData.swift */,
+				5C5EA0EF2641D78C00BE6AD5 /* ResStruct.swift */,
 			);
 			path = "Data Models";
 			sourceTree = "<group>";
@@ -358,6 +373,17 @@
 				5C46BDC92634ED0F0052EA29 /* TestItemDetails.swift */,
 			);
 			name = TestBar;
+			sourceTree = "<group>";
+		};
+		5C5EA0F22641E7EE00BE6AD5 /* Yelp */ = {
+			isa = PBXGroup;
+			children = (
+				5C5EA0F32641E80000BE6AD5 /* RestList.swift */,
+				5C5EA0F72641E80800BE6AD5 /* RestItem.swift */,
+				5C5EA0FA2641E81300BE6AD5 /* RestDetails.swift */,
+				5C5EA0FD2641EB8600BE6AD5 /* RestSearchPage.swift */,
+			);
+			name = Yelp;
 			sourceTree = "<group>";
 		};
 		5C9758CE26376DFD00EAF28F /* Barcodes */ = {
@@ -514,9 +540,11 @@
 				5C46BDF22636202D0052EA29 /* MovieList.swift in Sources */,
 				075DB1AE263859B7008936D1 /* BudgetItem.swift in Sources */,
 				5C5C5F2D2637915800A31426 /* Monimize.xcdatamodeld in Sources */,
+				5C5EA0ED2641D75A00BE6AD5 /* YelpAPI.swift in Sources */,
 				075DB1AB263859AC008936D1 /* BudgetDetails.swift in Sources */,
 				075DB19526384EF8008936D1 /* BudgetStruct.swift in Sources */,
 				5C46BE0F263652310052EA29 /* SvaingPlanList.swift in Sources */,
+				5C5EA0F02641D78C00BE6AD5 /* ResStruct.swift in Sources */,
 				5C46BE10263652310052EA29 /* SavingListItem.swift in Sources */,
 				075DB18B2637D351008936D1 /* InitialView.swift in Sources */,
 				5C9758D726376E3600EAF28F /* ScanFocusRegion.swift in Sources */,
@@ -535,6 +563,7 @@
 				5C9758EB2637711500EAF28F /* CurrencyApiData.swift in Sources */,
 				5C46BDBB262FCEF00052EA29 /* MonimizeItemDataDataData.swift in Sources */,
 				5C46BE12263652310052EA29 /* SavingDetails.swift in Sources */,
+				5C5EA0FB2641E81300BE6AD5 /* RestDetails.swift in Sources */,
 				5C5C5F12263786D800A31426 /* NewsList.swift in Sources */,
 				5C46BDA7262FC7750052EA29 /* Photo.swift in Sources */,
 				5C5EA0E42640E3F000BE6AD5 /* SavingTabView.swift in Sources */,
@@ -558,12 +587,14 @@
 				5C46BDAB262FCA590052EA29 /* PhotoCaptureView.swift in Sources */,
 				5C46BDCD263510F20052EA29 /* NationalParkApiData.swift in Sources */,
 				5C46BE0126362E710052EA29 /* AddMovie.swift in Sources */,
+				5C5EA0F42641E80000BE6AD5 /* RestList.swift in Sources */,
 				075DB1822637C23F008936D1 /* Budgets.swift in Sources */,
 				5C5C5F18263786EB00A31426 /* NewsDetails.swift in Sources */,
 				5C46BE162636529D0052EA29 /* SavingItem.swift in Sources */,
 				5C46BDB5262FCED40052EA29 /* ItemDataStruct.swift in Sources */,
 				5CBA6E42262D151F009B29F7 /* AppDelegate.swift in Sources */,
 				5C46BD86262FBA490052EA29 /* WebView.swift in Sources */,
+				5C5EA0F82641E80800BE6AD5 /* RestItem.swift in Sources */,
 				5C46BDC32634ECFA0052EA29 /* testItemList.swift in Sources */,
 				5C46BDBE262FD4320052EA29 /* CurrentLocation.swift in Sources */,
 				5C9758E82637707D00EAF28F /* FlashlightButtonView.swift in Sources */,
@@ -572,6 +603,7 @@
 				5C5C5F15263786E200A31426 /* NewsItem.swift in Sources */,
 				075DB198263850C8008936D1 /* BudgetData.swift in Sources */,
 				5CBA6E44262D151F009B29F7 /* SceneDelegate.swift in Sources */,
+				5C5EA0FE2641EB8600BE6AD5 /* RestSearchPage.swift in Sources */,
 				5CBA6E46262D151F009B29F7 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

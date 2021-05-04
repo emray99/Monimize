@@ -70,6 +70,26 @@ struct MainSearchPage: View {
                         }
 
                     }.padding(.trailing, 100)
+                    
+                    NavigationLink(destination: SearchRestPage()) {
+
+                        HStack {
+
+                            Image(systemName: "person.3.fill")
+
+                                .imageScale(.large)
+
+                                .font(Font.title.weight(.regular))
+
+                                .foregroundColor(.blue)
+
+                            Text("Find a Restaurant!")
+
+                                .font(.system(size: 20))
+
+                        }
+
+                    }.padding(.trailing, 100)
                 
                 NavigationLink(destination: FindNationalParkPage()) {
 
