@@ -7,15 +7,22 @@
 
 import SwiftUI
 
+import AVFoundation
+import Foundation
+import CoreLocation
+
+fileprivate var audioFullFilename = ""
+fileprivate var audioRecorder: AVAudioRecorder!
+
 struct AddBudget: View {
     @EnvironmentObject var userData: UserData
     @Environment(\.presentationMode) var presentationMode
-    // ❎ CoreData managedObjectContext reference
-    @Environment(\.managedObjectContext) var managedObjectContext
+
     @State private var title = ""
     @State private var note = ""
     @State private var value = 0.0
     @State private var showImagePicker = false
+    @State private var recordingVoice = false
     @State private var showCurrencyPicker = false
     @State private var showBudgetAddedAlert = false
     @State private var showInputDataMissingAlert = false
@@ -142,6 +149,26 @@ struct AddBudget: View {
                     
                 }
                 
+                Section(header: Text("Picked Photo"))
+                {
+                    if (photoImageData == nil)
+                    {
+                        Image("DefaultMultimediaNotePhoto")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 100.0)
+                        
+                    }
+                    else
+                    {
+                        getImageFromBinaryData(binaryData: self.photoImageData, defaultFilename: "ImageUnavailable")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 100.0)
+                    }
+                    
+                }
+                
                 Section(header: Text("Choose a category for this budget")) {
                     Picker("", selection: $categoryIndex) {
                         ForEach(0 ..< categoryList.count, id: \.self) {
@@ -150,6 +177,14 @@ struct AddBudget: View {
                     }
                     .pickerStyle(WheelPickerStyle())
                     .frame(minWidth: 300, maxWidth: 500, alignment: .leading)
+                }
+                
+                Section(header: Text("Voice Recording")) {
+                    Button(action: {
+                        self.voiceRecordingMicrophoneTapped()
+                    }) {
+                        voiceRecordingMicrophoneLabel
+                    }
                 }
                 
             } // End of Form
@@ -194,49 +229,88 @@ struct AddBudget: View {
        
         return true
     }
+    
+   
+   
+    
+    var voiceRecordingMicrophoneLabel: some View {
+        VStack {
+            Image(systemName: recordingVoice ? "mic.fill" : "mic.slash.fill")
+                .imageScale(.large)
+                .font(Font.title.weight(.medium))
+                .foregroundColor(.blue)
+                .padding()
+            Text(recordingVoice ? "Recording your voice... Tap to Stop!" : "Start Recording!")
+                .multilineTextAlignment(.center)
+        }
+    }
+    
+    func voiceRecordingMicrophoneTapped() {
+        if audioRecorder == nil {
+            self.recordingVoice = true
+            //userData.startDurationTimer()
+            startRecording()
+        } else {
+            self.recordingVoice = false
+            //userData.stopDurationTimer()
+            finishRecording()
+        }
+    }
+    
+    func startRecording() {
+ 
+        let settings = [
+            AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+            AVSampleRateKey: 12000,
+            AVNumberOfChannelsKey: 1,
+            AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
+        ]
+       
+        audioFullFilename = UUID().uuidString + ".m4a"
+        let audioFilenameUrl = documentDirectory.appendingPathComponent(audioFullFilename)
+       
+        do {
+            audioRecorder = try AVAudioRecorder(url: audioFilenameUrl, settings: settings)
+            audioRecorder.record()
+        } catch {
+            finishRecording()
+        }
+    }
+    
+    func finishRecording() {
+        audioRecorder.stop()
+        audioRecorder = nil
+        self.recordingVoice = false
+    }
+    
     func addNewBudget() {
         let date = Date()
         let currdateFormatter = DateFormatter()
         currdateFormatter.dateFormat = "yyyy-MM-dd' at 'HH:mm:ss"
         let currentDateTime = currdateFormatter.string(from: date)
+        let newPhotoName = UUID().uuidString + ".jpg"
         
+       
         
-        let newBudget = Budget(context: self.managedObjectContext)
-        newBudget.title = self.title
-        newBudget.currency = self.currencyList[selectedIndex]
-        newBudget.amount = NSNumber(value: self.value)
-        newBudget.note = self.note
-        newBudget.category = self.categoryList[categoryIndex]
-        newBudget.audioFilename = ""
-        newBudget.date = currentDateTime
-        
-        let newPhoto = BudgetPhoto(context: self.managedObjectContext)
+       
         let currentGeolocation = currentLocation()
-        if let imageData = self.photoImageData {
-            newPhoto.photoData = imageData
-            newPhoto.latitude = NSNumber(value: currentGeolocation.latitude)
-            newPhoto.longitude = NSNumber(value: currentGeolocation.longitude)
-            //newPhoto.date = currentDateTime
+        if let data = pickedImage.jpegData(compressionQuality: 1.0) {
+            let fileUrl = documentDirectory.appendingPathComponent(newPhotoName)
+            try? data.write(to: fileUrl)
             
         } else {
-            // Obtain the album cover default image from Assets.xcassets as UIImage
-            let photoUIImage = UIImage(named: "ImageUnavailable")
-           
-            // Convert photoUIImage to data of type Data (Binary Data) in JPEG format with 100% quality
-            let photoData = photoUIImage?.jpegData(compressionQuality: 1.0)
-           
-            // Assign photoData to Core Data entity attribute of type Data (Binary Data)
-            newPhoto.photoData = photoData!
+            print("Unable to write photo image to document directory!")
         }
+        let newBudget = BudgetStruct(id: UUID(), title: self.title, currency: self.currencyList[selectedIndex], amount: self.value, note: self.note, category: self.categoryList[categoryIndex], audioFilename: audioFullFilename, date: currentDateTime, photoFilename: newPhotoName, latitude: currentGeolocation.latitude, longitude: currentGeolocation.longitude)
+        userData.budgetsList.append(newBudget)
+        budgetStructList = userData.budgetsList
+        audioFullFilename = ""
+        self.photoImageData = nil
+        userData.voiceRecordingDuration = ""
+        self.presentationMode.wrappedValue.dismiss()
+
         
-        newBudget.photo = newPhoto
-        newPhoto.budget = newBudget
-        
-        do {
-            try self.managedObjectContext.save()
-        } catch {
-            return
-        }
+     
         
     }
 }

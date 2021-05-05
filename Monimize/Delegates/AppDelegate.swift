@@ -19,9 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         obtainYelpDataFromApi(category: "fasd", query: "Chinese")
         obtainNewsDataFromApi(query: "fas")
         createExpenseDatabase()
-        createBudgetDatabase()
+        readBudgetDataFile()
         obtainAllCurrenciesFromApi()
-       
+        getPermissionForVoiceRecording()
         
         getPermissionForLocation()
         

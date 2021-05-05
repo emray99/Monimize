@@ -26,6 +26,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window.rootViewController = UIHostingController(rootView: ContentView()
                 .environment(\.managedObjectContext, managedObjectContext)
                 .environmentObject(UserData())
+                .environmentObject(AudioPlayer())
+                                                            
             )
            
             self.window = window
@@ -62,6 +64,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Save changes in the application's managed object context when the application transitions to the background.
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+        writeBudgetsDataFile()
     }
 
 

@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct BudgetItem: View {
-    let budget: Budget
-    @FetchRequest(fetchRequest: Budget.allBudgetsFetchRequest()) var allBudgets: FetchedResults<Budget>
+    let budget: BudgetStruct
+
     @EnvironmentObject var userData: UserData
     var body: some View {
         HStack {
@@ -26,19 +26,19 @@ struct BudgetItem: View {
                     unwrap it and return its value
                 ELSE return ""
                 */
-                Text(budget.title ?? "")
+                Text(budget.title)
 
                 
                 budgetAmount
 
-                Text(budget.currency ?? "")
+                Text(budget.currency)
 
             }
             .font(.system(size: 14))
         }
     }
     var budgetAmount: Text {
-           let amount = budget.amount!.doubleValue
+           let amount = budget.amount
           
            // Add thousand separators to trip cost
            let numberFormatter = NumberFormatter()

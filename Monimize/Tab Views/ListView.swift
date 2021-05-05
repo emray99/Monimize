@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct ListView: View {
-    @Environment(\.managedObjectContext) var managedObjectContext
-    @FetchRequest(fetchRequest: Budget.allBudgetsFetchRequest()) var allBudgets: FetchedResults<Budget>
+
     @EnvironmentObject var userData: UserData
     var body: some View {
         NavigationView {
@@ -18,7 +17,7 @@ struct ListView: View {
                  Each NSManagedObject has internally assigned unique ObjectIdentifier
                  used by ForEach to display the Songs in a dynamic scrollable list.
                  */
-                ForEach(self.allBudgets) { aBudget in
+                ForEach(userData.budgetsList) { aBudget in
                     NavigationLink(destination: BudgetDetails(budget: aBudget)) {
                         BudgetItem(budget: aBudget)
                     }
@@ -40,16 +39,35 @@ struct ListView: View {
     }
     func delete(at offsets: IndexSet) {
        
-        let budgetToDelete = self.allBudgets[offsets.first!]
-       
-        // ❎ CoreData Delete operation
-        self.managedObjectContext.delete(budgetToDelete)
- 
-        // ❎ CoreData Save operation
-        do {
-          try self.managedObjectContext.save()
-        } catch {
-          print("Unable to delete selected Budget!")
+        if let index = offsets.first {
+            let nameOfPhotoFileToDelete = userData.budgetsList[index].photoFilename
+            let nameOfAudioFileToDelete = userData.budgetsList[index].audioFilename
+            // Obtain the document directory file path of the file to be deleted
+            let filePath = documentDirectory.appendingPathComponent(nameOfPhotoFileToDelete).path
+            let urlOfAudioFileToDelete = documentDirectory.appendingPathComponent(nameOfAudioFileToDelete)
+           
+            do {
+                let fileManager = FileManager.default
+               
+                // Check if the photo file exists in document directory
+                if fileManager.fileExists(atPath: filePath) {
+                    // Delete the photo file from document directory
+                    try fileManager.removeItem(atPath: filePath)
+                    try fileManager.removeItem(at: urlOfAudioFileToDelete)
+                    
+
+                } else {
+                    // Photo file does not exist in document directory
+                }
+            } catch {
+                print("Unable to delete the photo file from the document directory.")
+            }
+           
+            // Remove the selected photo from the list
+            userData.budgetsList.remove(at: index)
+           
+            // Set the global variable point to the changed list
+            budgetStructList = userData.budgetsList
         }
     }
 }

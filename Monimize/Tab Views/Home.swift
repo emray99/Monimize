@@ -14,15 +14,14 @@ struct Home: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(fetchRequest: SavingItem.allSavingItemsFetchRequest()) var allSavingItems: FetchedResults<SavingItem>
     
-    @FetchRequest(fetchRequest: Budget.allBudgetsFetchRequest()) var allBudgets: FetchedResults<Budget>
-    
+
     @EnvironmentObject var userData: UserData
     
     var body: some View {
         NavigationView {
             
         Form{
-            if (allBudgets.count == 0)
+            if (userData.budgetsList.count == 0)
             {
                 Section(header: Text("My Recent Expenses")) {
                     
@@ -41,7 +40,7 @@ struct Home: View {
                          Each NSManagedObject has internally assigned unique ObjectIdentifier
                          used by ForEach to display the Songs in a dynamic scrollable list.
                          */
-                        let first3 = self.allBudgets.prefix(3)
+                        let first3 = userData.budgetsList.prefix(3)
                         ForEach(first3) { aBudget in
                             NavigationLink(destination: BudgetDetails(budget: aBudget)) {
                                 BudgetItem(budget: aBudget)

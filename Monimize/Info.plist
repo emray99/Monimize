@@ -59,6 +59,8 @@
 	<string>Monimize needs to access your Photo library so that you can pick a photo!</string>
 	<key>NSFaceIDUsageDescription</key>
 	<string>Monimize needs to access camera for FaceID feature!</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Microphone is used to record your voice to create Voice Notes and to record your speech so that it can be converted to text.</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

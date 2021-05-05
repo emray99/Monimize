@@ -6,129 +6,198 @@
 //
 
 import SwiftUI
-import CoreData
- 
-// Array of TravelData structs for use only in this file
-fileprivate var budgetDataStructList = [BudgetStruct]()
- 
-/*
- ***********************************
- MARK: - Create TravelData Database
- ***********************************
- */
-public func createBudgetDatabase() {
- 
-    budgetDataStructList = decodeJsonFileIntoArrayOfStructs(fullFilename: "BudgetDataM.json", fileLocation: "Main Bundle")
-   
-    populateBudgetDatabase()
-}
- 
-/*
-*********************************************
-MARK: - Populate Database If Not Already Done
-*********************************************
-*/
-func populateBudgetDatabase() {
-   
-    // ❎ Get object reference of CoreData managedObjectContext from the persistent container
-    let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-   
-    //----------------------------
-    // ❎ Define the Fetch Request
-    //----------------------------
-    let fetchRequest = NSFetchRequest<Budget>(entityName: "Budget")
-    fetchRequest.sortDescriptors = [
-        // Primary sort key: artistName
-        NSSortDescriptor(key: "date", ascending: false),
-        // Secondary sort key: songName
-        NSSortDescriptor(key: "title", ascending: true)
-    ]
-   
-    var listOfAllBudgetEntitiesInDatabase = [Budget]()
-   
-    do {
-        //-----------------------------
-        // ❎ Execute the Fetch Request
-        //-----------------------------
-        listOfAllBudgetEntitiesInDatabase = try managedObjectContext.fetch(fetchRequest)
-    } catch {
-        print("Populate Database Failed!")
-        return
-    }
-   
-    if listOfAllBudgetEntitiesInDatabase.count > 0 {
-        // Database has already been populated
-        print("Budget Database has already been populated!")
-        return
-    }
-   
-    print("Database will be populated!")
-   
-    for data in budgetDataStructList {
-        /*
-         =====================================================
-         Create an instance of the Record Entity and dress it up
-         =====================================================
-        */
-       
-        // ❎ Create an instance of the Record entity in CoreData managedObjectContext
-        let budgetEntity = Budget(context: managedObjectContext)
-       
-        // ❎ Dress it up by specifying its attributes
-        budgetEntity.title = data.title
-        budgetEntity.amount = NSNumber(value: data.amount)
-        budgetEntity.currency = data.currency
-        budgetEntity.note = data.note
-        budgetEntity.category = data.category
-        budgetEntity.date = data.date
+import Foundation
+import AVFoundation
+import CoreLocation
 
- 
-        /*
-         ======================================================
-         Create an instance of the Photo Entity and dress it up
-         ======================================================
-         */
-       
-        // ❎ Create an instance of the Photo Entity in CoreData managedObjectContext
-        let photoEntity = BudgetPhoto(context: managedObjectContext)
-       
-        // Obtain the album cover photo image from Assets.xcassets as UIImage
-        let photoUIImage = UIImage(named: data.photoFilename)
-       
-        // Convert photoUIImage to data of type Data (Binary Data) in JPEG format with 100% quality
-        let photoData = photoUIImage?.jpegData(compressionQuality: 1.0)
-       
-        // Assign photoData to Core Data entity attribute of type Data (Binary Data)
-        photoEntity.photoData = photoData!
-        photoEntity.latitude = NSNumber(value: data.photoLatitude)
-        photoEntity.longitude = NSNumber(value: data.photoLongitude)
+var budgetStructList = [BudgetStruct]()
 
+// Global Variable
+var audioSession = AVAudioSession()
+
+public func readBudgetDataFile() {
+    var fileExistsInDocumentDirectory = false
+    let jsonDataFullFilename = "BudgetDataM.json"
     
-
+    let urlOfJsonFileInDocumentDirectory = documentDirectory.appendingPathComponent(jsonDataFullFilename)
+    
+    do {
+        _ = try Data(contentsOf: urlOfJsonFileInDocumentDirectory)
+        
+        // MultimediaNotesData.json file exists in the document directory
+        fileExistsInDocumentDirectory = true
+        
+        budgetStructList = decodeJsonFileIntoArrayOfStructs(fullFilename: jsonDataFullFilename, fileLocation: "Document Directory")
+        print("BudgetData is loaded from document directory")
+        
+    } catch {
         /*
-         ==============================
-         Establish Entity Relationships
-         ==============================
-        */
-       
-        // ❎ Establish Relationship between entities Song and Photo
-        budgetEntity.photo = photoEntity
-        photoEntity.budget = budgetEntity
-       
-        /*
-         ==================================
-         Save Changes to Core Data Database
-         ==================================
-        */
-       
-        // ❎ CoreData Save operation
-        do {
-            try managedObjectContext.save()
-        } catch {
-            return
+         MultimediaNotesData.json file does not exist in the document directory; Load it from the main bundle.
+         This happens only once when the app is launched for the very first time.
+         */
+        
+        budgetStructList = decodeJsonFileIntoArrayOfStructs(fullFilename: jsonDataFullFilename, fileLocation: "Main Bundle")
+        print("BudgetData is loaded from main bundle")
+    }
+    
+    if !fileExistsInDocumentDirectory {
+        
+        for budget in budgetStructList {
+            
+            // Example photo fullFilename = "D3C83FED-B482-425C-A3F8-6C90A636DFBF.jpg"
+            let array = budget.photoFilename.components(separatedBy: ".")
+            
+            let array1 = budget.audioFilename.components(separatedBy: ".")
+            
+            // array[0] = "D3C83FED-B482-425C-A3F8-6C90A636DFBF"
+            // array[1] = "jpg"
+            
+            // Copy each photo file from Assets.xcassets to document directory
+            copyImageFileFromAssetsToDocumentDirectory(filename: array[0], fileExtension: array[1])
+            copyFileFromMainBundleToDocumentDirectory(filename: array1[0], fileExtension: array1[1], folderName: "AudioFiles")
         }
-       
-    }   // End of for loop
- 
+    }
+    
 }
- 
+
+/*
+ **********************************************************
+ MARK: - Write Album Photos Data File to Document Directory
+ **********************************************************
+ */
+public func writeBudgetsDataFile() {
+    
+    // Obtain URL of the JSON file into which data will be written
+    let urlOfJsonFileInDocumentDirectory: URL? = documentDirectory.appendingPathComponent("BudgetDataM.json")
+    
+    // Encode photoStructList into JSON and write it into the JSON file
+    let encoder = JSONEncoder()
+    if let encoded = try? encoder.encode(budgetStructList) {
+        do {
+            try encoded.write(to: urlOfJsonFileInDocumentDirectory!)
+        } catch {
+            fatalError("Unable to write encoded budget data to document directory!")
+        }
+    } else {
+        fatalError("Unable to encode budget data!")
+    }
+}
+
+/*
+ **************************************************************
+ MARK: - Save Taken or Picked Photo Image to Document Directory
+ **************************************************************
+ */
+//public func saveNote(title: String, textualNote: String, speechToTextNote: String, locationName: String) -> Notes {
+//
+//    //----------------------------------------
+//    // Generate a new id and new full filename
+//    //----------------------------------------
+//    let newNoteId = UUID()
+//    let newPhotoFullFilename = UUID().uuidString + ".jpg"
+//    let newAudioFullFilename = UUID().uuidString + ".m4a"
+//
+//    //-----------------------------
+//    // Obtain Current Date and Time
+//    //-----------------------------
+//    let date = Date()
+//
+//    // Instantiate a DateFormatter object
+//    let dateFormatter = DateFormatter()
+//
+//    // Set the date format to yyyy-MM-dd at HH:mm:ss
+//    dateFormatter.dateFormat = "yyyy-MM-dd' at 'HH:mm:ss"
+//
+//    // Format current date and time as above and convert it to String
+//    let currentDateTime = dateFormatter.string(from: date)
+//
+//    //----------------------------------------------------------
+//    // Get Latitude and Longitude of Where Photo Taken or Picked
+//    //----------------------------------------------------------
+//
+//    // Public function currentLocation() is given in CurrentLocation.swift
+//    let noteLocation = currentLocation()
+//
+//    let newNote = Notes(id: newNoteId, title: title, textualNote: textualNote,
+//                        photoFullFilename: newPhotoFullFilename,
+//                        audioFullFilename: newAudioFullFilename,
+//                        speechToTextNote: speechToTextNote,
+//                        locationName: locationName,
+//                        dateTime: currentDateTime, latitude:noteLocation.latitude , longitude:noteLocation.longitude)
+//
+//    //-------------------------------------------------------
+//    // Save Taken or Picked Photo Image to Document Directory
+//    //-------------------------------------------------------
+//
+//    // Global variable pickedImage was obtained in ImagePicker.swift
+//
+//    /*
+//     Convert pickedImage to a data object containing the
+//     image data in JPEG format with 100% compression quality
+//     */
+//    if let data = pickedImage.jpegData(compressionQuality: 1.0) {
+//        let fileUrl = documentDirectory.appendingPathComponent(newPhotoFullFilename)
+//        try? data.write(to: fileUrl)
+//    } else {
+//        print("Unable to write photo image to document directory!")
+//    }
+//
+//    return newNote
+//}
+
+
+/*
+ ******************************************
+ MARK: - Get Permission for Voice Recording
+ ******************************************
+ */
+public func getPermissionForVoiceRecording() {
+    
+    // Create a shared audio session instance
+    audioSession = AVAudioSession.sharedInstance()
+    
+    //---------------------------
+    // Enable Built-In Microphone
+    //---------------------------
+    
+    // Find the built-in microphone.
+    guard let availableInputs = audioSession.availableInputs,
+          let builtInMicrophone = availableInputs.first(where: { $0.portType == .builtInMic })
+    else {
+        print("The device must have a built-in microphone.")
+        return
+    }
+    do {
+        try audioSession.setPreferredInput(builtInMicrophone)
+    } catch {
+        print("Unable to Find the Built-In Microphone!")
+    }
+    
+    //--------------------------------------------------
+    // Set Audio Session Category and Request Permission
+    //--------------------------------------------------
+    
+    do {
+        try audioSession.setCategory(.playAndRecord, mode: .default)
+        
+        // Activate the audio session
+        try audioSession.setActive(true)
+        
+        // Request permission to record user's voice
+        audioSession.requestRecordPermission() { allowed in
+            DispatchQueue.main.async {
+                if allowed {
+                    // Permission is recorded in the Settings app on user's device
+                } else {
+                    // Permission is recorded in the Settings app on user's device
+                }
+            }
+        }
+    } catch {
+        print("Setting category or getting permission failed!")
+    }
+}
+
+
+
+

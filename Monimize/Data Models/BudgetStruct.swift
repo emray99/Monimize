@@ -9,8 +9,9 @@ import Foundation
 
 
 
-struct BudgetStruct: Decodable {
+public struct BudgetStruct: Hashable, Codable, Identifiable {
     
+    public var id: UUID
     var title: String
     var currency: String
     var amount: Double
@@ -19,8 +20,8 @@ struct BudgetStruct: Decodable {
     var audioFilename: String
     var date: String
     var photoFilename: String
-    var photoLatitude: Double
-    var photoLongitude: Double
+    var latitude: Double
+    var longitude: Double
     
 
 }
