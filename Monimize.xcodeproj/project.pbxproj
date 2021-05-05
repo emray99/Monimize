@@ -22,6 +22,11 @@
 		075DB2852642995B008936D1 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075DB2842642995B008936D1 /* AudioPlayer.swift */; };
 		075DB28926429FB7008936D1 /* AddBudget2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075DB28826429FB7008936D1 /* AddBudget2.swift */; };
 		075DB2B22642C46A008936D1 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075DB2B12642C468008936D1 /* SearchBar.swift */; };
+		075DB305264309D6008936D1 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 075DB304264309D6008936D1 /* WidgetKit.framework */; };
+		075DB307264309D7008936D1 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 075DB306264309D7008936D1 /* SwiftUI.framework */; };
+		075DB30A264309D7008936D1 /* BudgetWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075DB309264309D7008936D1 /* BudgetWidget.swift */; };
+		075DB30C264309DA008936D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 075DB30B264309DA008936D1 /* Assets.xcassets */; };
+		075DB310264309DA008936D1 /* BudgetWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 075DB302264309D6008936D1 /* BudgetWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5C46BD86262FBA490052EA29 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C46BD85262FBA490052EA29 /* WebView.swift */; };
 		5C46BD8A262FBA620052EA29 /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C46BD89262FBA620052EA29 /* UtilityFunctions.swift */; };
 		5C46BD8D262FBA980052EA29 /* SearchResultsEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C46BD8C262FBA980052EA29 /* SearchResultsEmpty.swift */; };
@@ -102,6 +107,30 @@
 		5CBA6E51262D1520009B29F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CBA6E4F262D1520009B29F7 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		075DB30E264309DA008936D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5CBA6E36262D151F009B29F7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 075DB301264309D6008936D1;
+			remoteInfo = BudgetWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		075DB311264309DA008936D1 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				075DB310264309DA008936D1 /* BudgetWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		075DB1812637C23F008936D1 /* Budgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budgets.swift; sourceTree = "<group>"; };
 		075DB1872637D0F1008936D1 /* AddBudget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBudget.swift; sourceTree = "<group>"; };
@@ -118,6 +147,14 @@
 		075DB2842642995B008936D1 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		075DB28826429FB7008936D1 /* AddBudget2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBudget2.swift; sourceTree = "<group>"; };
 		075DB2B12642C468008936D1 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		075DB302264309D6008936D1 /* BudgetWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BudgetWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		075DB304264309D6008936D1 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		075DB306264309D7008936D1 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		075DB309264309D7008936D1 /* BudgetWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetWidget.swift; sourceTree = "<group>"; };
+		075DB30B264309DA008936D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		075DB30D264309DA008936D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		075DB31726430DFE008936D1 /* Monimize.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Monimize.entitlements; sourceTree = "<group>"; };
+		075DB31A26430E11008936D1 /* BudgetWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BudgetWidgetExtension.entitlements; sourceTree = "<group>"; };
 		5C46BD85262FBA490052EA29 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		5C46BD89262FBA620052EA29 /* UtilityFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFunctions.swift; sourceTree = "<group>"; };
 		5C46BD8C262FBA980052EA29 /* SearchResultsEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsEmpty.swift; sourceTree = "<group>"; };
@@ -200,6 +237,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		075DB2FF264309D6008936D1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				075DB307264309D7008936D1 /* SwiftUI.framework in Frameworks */,
+				075DB305264309D6008936D1 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5CBA6E3B262D151F009B29F7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -294,6 +340,25 @@
 				5C5EA0E92640E5E800BE6AD5 /* PasswordReset.swift */,
 			);
 			name = Home;
+			sourceTree = "<group>";
+		};
+		075DB303264309D6008936D1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				075DB304264309D6008936D1 /* WidgetKit.framework */,
+				075DB306264309D7008936D1 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		075DB308264309D7008936D1 /* BudgetWidget */ = {
+			isa = PBXGroup;
+			children = (
+				075DB309264309D7008936D1 /* BudgetWidget.swift */,
+				075DB30B264309DA008936D1 /* Assets.xcassets */,
+				075DB30D264309DA008936D1 /* Info.plist */,
+			);
+			path = BudgetWidget;
 			sourceTree = "<group>";
 		};
 		5C46BD82262FB9FE0052EA29 /* CoreData Model */ = {
@@ -422,7 +487,10 @@
 		5CBA6E35262D151F009B29F7 = {
 			isa = PBXGroup;
 			children = (
+				075DB31A26430E11008936D1 /* BudgetWidgetExtension.entitlements */,
 				5CBA6E40262D151F009B29F7 /* Monimize */,
+				075DB308264309D7008936D1 /* BudgetWidget */,
+				075DB303264309D6008936D1 /* Frameworks */,
 				5CBA6E3F262D151F009B29F7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -431,6 +499,7 @@
 			isa = PBXGroup;
 			children = (
 				5CBA6E3E262D151F009B29F7 /* Monimize.app */,
+				075DB302264309D6008936D1 /* BudgetWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -438,6 +507,7 @@
 		5CBA6E40262D151F009B29F7 /* Monimize */ = {
 			isa = PBXGroup;
 			children = (
+				075DB31726430DFE008936D1 /* Monimize.entitlements */,
 				5C9758E32637704600EAF28F /* Flashlight */,
 				5C9758CE26376DFD00EAF28F /* Barcodes */,
 				5C46BDA9262FCA470052EA29 /* Take or Pick Photo */,
@@ -467,6 +537,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		075DB301264309D6008936D1 /* BudgetWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 075DB314264309DA008936D1 /* Build configuration list for PBXNativeTarget "BudgetWidgetExtension" */;
+			buildPhases = (
+				075DB2FE264309D6008936D1 /* Sources */,
+				075DB2FF264309D6008936D1 /* Frameworks */,
+				075DB300264309D6008936D1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BudgetWidgetExtension;
+			productName = BudgetWidgetExtension;
+			productReference = 075DB302264309D6008936D1 /* BudgetWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		5CBA6E3D262D151F009B29F7 /* Monimize */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5CBA6E55262D1520009B29F7 /* Build configuration list for PBXNativeTarget "Monimize" */;
@@ -474,10 +561,12 @@
 				5CBA6E3A262D151F009B29F7 /* Sources */,
 				5CBA6E3B262D151F009B29F7 /* Frameworks */,
 				5CBA6E3C262D151F009B29F7 /* Resources */,
+				075DB311264309DA008936D1 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				075DB30F264309DA008936D1 /* PBXTargetDependency */,
 			);
 			name = Monimize;
 			packageProductDependencies = (
@@ -493,9 +582,12 @@
 		5CBA6E36262D151F009B29F7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1230;
+				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1230;
 				TargetAttributes = {
+					075DB301264309D6008936D1 = {
+						CreatedOnToolsVersion = 12.4;
+					};
 					5CBA6E3D262D151F009B29F7 = {
 						CreatedOnToolsVersion = 12.3;
 					};
@@ -518,11 +610,20 @@
 			projectRoot = "";
 			targets = (
 				5CBA6E3D262D151F009B29F7 /* Monimize */,
+				075DB301264309D6008936D1 /* BudgetWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		075DB300264309D6008936D1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				075DB30C264309DA008936D1 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5CBA6E3C262D151F009B29F7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -539,6 +640,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		075DB2FE264309D6008936D1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				075DB30A264309D7008936D1 /* BudgetWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5CBA6E3A262D151F009B29F7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -634,6 +743,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		075DB30F264309DA008936D1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 075DB301264309D6008936D1 /* BudgetWidgetExtension */;
+			targetProxy = 075DB30E264309DA008936D1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		5CBA6E4F262D1520009B29F7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -646,6 +763,52 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		075DB312264309DA008936D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = BudgetWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MW72GGU2YX;
+				INFOPLIST_FILE = BudgetWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zihaoli.Monimize.BudgetWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		075DB313264309DA008936D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = BudgetWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MW72GGU2YX;
+				INFOPLIST_FILE = BudgetWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zihaoli.Monimize.BudgetWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		5CBA6E53262D1520009B29F7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -765,8 +928,10 @@
 		5CBA6E56262D1520009B29F7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Monimize/Monimize.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Monimize/Preview Content\"";
 				DEVELOPMENT_TEAM = MW72GGU2YX;
@@ -786,8 +951,10 @@
 		5CBA6E57262D1520009B29F7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Monimize/Monimize.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Monimize/Preview Content\"";
 				DEVELOPMENT_TEAM = MW72GGU2YX;
@@ -807,6 +974,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		075DB314264309DA008936D1 /* Build configuration list for PBXNativeTarget "BudgetWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				075DB312264309DA008936D1 /* Debug */,
+				075DB313264309DA008936D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5CBA6E39262D151F009B29F7 /* Build configuration list for PBXProject "Monimize" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

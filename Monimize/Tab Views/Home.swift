@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftUICharts
+import WidgetKit
 
 
 extension Double {
@@ -43,6 +44,7 @@ struct Home: View {
     
 
     @EnvironmentObject var userData: UserData
+    
     //var totalSum = userData.budgetsList.map({$0.amount}).reduce(0, +)
     var body: some View {
         
@@ -116,18 +118,13 @@ struct Home: View {
         }
         return sum
     }
-    var janExpense: Double {
-        let list = userData.budgetsList
-        var jan = 0.0
-        for item in list {
-            if item.date.substring(with: 6..<8) == "01" {
-                jan += item.amount
-            }
-        }
-        return jan
-    }
+    
     var totalSum: Double {
         let list = userData.budgetsList
+        let userDefaults = UserDefaults(suiteName: "group.dataCache")
+        userDefaults?.setValue("Total Expense: $\(list.reduce(0, {$0 + $1.amount}))", forKey: "text")
+        WidgetCenter.shared.reloadAllTimelines()
+        
         return list.reduce(0, {$0 + $1.amount})
     }
     
