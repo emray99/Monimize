@@ -5,29 +5,30 @@
         "currentSave": 299.33,
         "budgetDescription": "Awesome Macbook gotta buy",
         "expectDate": "2021-10-04",
-        "photoFilename": "ApplePark",
+        "photoFilename": "macbook",
         "photoLatitude": 0.00,
         "photoLongitude": 0.00
     },
     {
-        "budgetName": "new Macbook2",
-        "budgetValue": 1099.99,
+        "budgetName": "new PS5",
+        "budgetValue": 499.99,
         "currentSave": 99.33,
-        "budgetDescription": "Awesome Macbook gotta buy",
-        "expectDate": "2021-10-04",
-        "photoFilename": "ApplePark",
+        "budgetDescription": "brand new PS5 console in standard price",
+        "expectDate": "2021-6-19",
+        "photoFilename": "ps5",
         "photoLatitude": 0.00,
         "photoLongitude": 0.00
     },
     {
-        "budgetName": "new Macbook3",
-        "budgetValue": 1099.99,
-        "currentSave": 399.33,
-        "budgetDescription": "Awesome Macbook gotta buy",
-        "expectDate": "2021-10-04",
-        "photoFilename": "ApplePark",
+        "budgetName": "xbox x",
+        "budgetValue": 500,
+        "currentSave": 20,
+        "budgetDescription": "a xbox series console game",
+        "expectDate": "2021-07-23",
+        "photoFilename": "xbox",
         "photoLatitude": 0.00,
         "photoLongitude": 0.00
     }
      
 ]
+
