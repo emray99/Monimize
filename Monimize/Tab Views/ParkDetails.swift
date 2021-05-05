@@ -18,7 +18,8 @@ struct ParkDetails: View {
     @Environment(\.managedObjectContext) var managedObjectContext
 
     var mapTypes = ["Standard", "Satellite", "Hybrid"]
-
+    
+   
     // Input Parameter
     let park: Park
    
@@ -37,7 +38,7 @@ struct ParkDetails: View {
                     getImageFromUrl(url: park.parkImage, defaultFilename: "ImageUnavailable")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(minWidth: 300, maxWidth: 500, alignment: .center)
+                       .frame(minWidth: 300, maxWidth: 500, alignment: .center)
                         .padding()
                 }
             

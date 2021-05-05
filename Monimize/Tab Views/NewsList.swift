@@ -10,7 +10,7 @@ import SwiftUI
 struct NewsListPage: View {
     
     var body: some View {
-        NavigationView {
+       // NavigationView {
             List {
                 ForEach(newsList) { aNews in
                     
@@ -24,6 +24,6 @@ struct NewsListPage: View {
             .navigationBarTitle(Text("Latest News In English Language"), displayMode: .inline)
        
         .customNavigationViewStyle()      // Given in NavigationStyle.swift
-        }
+        //}
     }   // End of body
 }

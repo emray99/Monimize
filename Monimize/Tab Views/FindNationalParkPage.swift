@@ -18,6 +18,7 @@ struct FindNationalParkPage: View {
     @State private var selectedIndexFrom = 10
     @State private var searchCompleted = false
     @State private var searchActivity = ""
+    @State private var showProgressView = false
 
     var body: some View {
 
@@ -45,8 +46,12 @@ struct FindNationalParkPage: View {
                     HStack {
                         Button(action: {
                             if self.inputDataValidated() {
+                                self.showProgressView = true
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                                 self.searchApi()
+                                self.showProgressView = false
                                 self.searchCompleted = true
+                                }
 
                             } else {
                                 //
@@ -62,6 +67,13 @@ struct FindNationalParkPage: View {
                         )
                     }   // End of HStack
 
+                }
+                
+                if showProgressView{
+                    Section{
+                        ProgressView()
+                            .progressViewStyle(DarkBlueShadowProgressViewStyle())
+                    }
                 }
                 
                 if searchCompleted {
@@ -93,7 +105,7 @@ struct FindNationalParkPage: View {
                 if (self.searchCompleted)
                 {
                     
-                    Section(header: Text("CLEAR (Please Clear Before Search Another Activity!)")) {
+                    Section(header: Text("CLEAR (Please Clear Before Searching Another Activity!)")) {
                         HStack {
                             Button(action: {
                                 self.searchActivity = ""

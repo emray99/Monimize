@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -80,6 +80,8 @@
 		5C5EA0F82641E80800BE6AD5 /* RestItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5EA0F72641E80800BE6AD5 /* RestItem.swift */; };
 		5C5EA0FB2641E81300BE6AD5 /* RestDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5EA0FA2641E81300BE6AD5 /* RestDetails.swift */; };
 		5C5EA0FE2641EB8600BE6AD5 /* RestSearchPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5EA0FD2641EB8600BE6AD5 /* RestSearchPage.swift */; };
+		5C5EA10226422D1900BE6AD5 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 5C5EA10126422D1900BE6AD5 /* SwiftUICharts */; };
+		5C5EA10526424AF800BE6AD5 /* ProgressViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5EA10426424AF800BE6AD5 /* ProgressViewStyle.swift */; };
 		5C9758BD263769FE00EAF28F /* GadgetMainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9758BC263769FE00EAF28F /* GadgetMainPage.swift */; };
 		5C9758C026376A1700EAF28F /* QRCodePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9758BF26376A1700EAF28F /* QRCodePage.swift */; };
 		5C9758C626376A3200EAF28F /* CurrencyConverterPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9758C526376A3200EAF28F /* CurrencyConverterPage.swift */; };
@@ -171,6 +173,7 @@
 		5C5EA0F72641E80800BE6AD5 /* RestItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestItem.swift; sourceTree = "<group>"; };
 		5C5EA0FA2641E81300BE6AD5 /* RestDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestDetails.swift; sourceTree = "<group>"; };
 		5C5EA0FD2641EB8600BE6AD5 /* RestSearchPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestSearchPage.swift; sourceTree = "<group>"; };
+		5C5EA10426424AF800BE6AD5 /* ProgressViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewStyle.swift; sourceTree = "<group>"; };
 		5C9758BC263769FE00EAF28F /* GadgetMainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GadgetMainPage.swift; sourceTree = "<group>"; };
 		5C9758BF26376A1700EAF28F /* QRCodePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodePage.swift; sourceTree = "<group>"; };
 		5C9758C526376A3200EAF28F /* CurrencyConverterPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterPage.swift; sourceTree = "<group>"; };
@@ -195,6 +198,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C5EA10226422D1900BE6AD5 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +322,7 @@
 				5C46BDBD262FD4320052EA29 /* CurrentLocation.swift */,
 				5C46BE20263652E20052EA29 /* CircleProgressBar.swift */,
 				5C46BDE42635424B0052EA29 /* MapView.swift */,
+				5C5EA10426424AF800BE6AD5 /* ProgressViewStyle.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -466,6 +471,9 @@
 			dependencies = (
 			);
 			name = Monimize;
+			packageProductDependencies = (
+				5C5EA10126422D1900BE6AD5 /* SwiftUICharts */,
+			);
 			productName = Monimize;
 			productReference = 5CBA6E3E262D151F009B29F7 /* Monimize.app */;
 			productType = "com.apple.product-type.application";
@@ -493,6 +501,9 @@
 				Base,
 			);
 			mainGroup = 5CBA6E35262D151F009B29F7;
+			packageReferences = (
+				5C5EA10026422D1800BE6AD5 /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
 			productRefGroup = 5CBA6E3F262D151F009B29F7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -538,6 +549,7 @@
 				5C46BDFE263621110052EA29 /* CharacterItem.swift in Sources */,
 				5C46BD90262FBB1A0052EA29 /* NavigationStyle.swift in Sources */,
 				5C46BDF22636202D0052EA29 /* MovieList.swift in Sources */,
+				5C5EA10526424AF800BE6AD5 /* ProgressViewStyle.swift in Sources */,
 				075DB1AE263859B7008936D1 /* BudgetItem.swift in Sources */,
 				5C5C5F2D2637915800A31426 /* Monimize.xcdatamodeld in Sources */,
 				5C5EA0ED2641D75A00BE6AD5 /* YelpAPI.swift in Sources */,
@@ -802,6 +814,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5C5EA10026422D1800BE6AD5 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5C5EA10126422D1900BE6AD5 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C5EA10026422D1800BE6AD5 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		5C5C5F2B2637915800A31426 /* Monimize.xcdatamodeld */ = {

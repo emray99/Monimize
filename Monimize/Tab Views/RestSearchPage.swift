@@ -12,8 +12,7 @@ struct SearchRestPage: View {
     @State private var searchFieldValue = ""
     @State private var showMissingInputDataAlert = false
     @State private var searchCompleted = false
-
-
+    @State private var showProgressView = false
     var body: some View {
         
             ZStack {
@@ -49,9 +48,13 @@ struct SearchRestPage: View {
                             HStack {
                                 Button(action: {
                                     if self.inputDataValidated() {
+                                        self.showProgressView = true
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        
                                         self.searchApi()
+                                            self.showProgressView = false
                                         self.searchCompleted = true
-
+                                        }
                                     } else {
 
                                         self.showMissingInputDataAlert = true
@@ -69,8 +72,16 @@ struct SearchRestPage: View {
                             }   // End of HStack
 
                         }
+                        
+                        if showProgressView {
 
-                       
+                        Section {
+                                    ProgressView()
+                                                    // Style defined in ProgressViewStyle.swift given below
+                                    .progressViewStyle(DarkBlueShadowProgressViewStyle())
+                                        }
+                                }
+                        
 
                         if searchCompleted {
 
@@ -88,7 +99,7 @@ struct SearchRestPage: View {
 
                                             .foregroundColor(.blue)
 
-                                        Text("Show Restaurant Found")
+                                        Text("Show Restaurant Found (If API is busy and blank screen is shown please search again!)")
 
                                             .font(.system(size: 16))
 

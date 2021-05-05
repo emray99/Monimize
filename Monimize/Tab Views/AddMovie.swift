@@ -98,7 +98,7 @@ struct AddMovie: View {
                     Text("Movie: \(movie.title)")
                 }
                 
-                Section(header: Text("Movie Ticket Price")) {
+                Section(header: Text("Movie Ticket Price (Hit Enter!)")) {
                     TextField("Cost", value: $itemCost, formatter: tripCostFormatter)
                       }
                 

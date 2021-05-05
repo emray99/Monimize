@@ -22,13 +22,29 @@ struct RestItem: View {
             VStack(alignment: .leading) {
                 Text("Name: \(rest.name)")
                 //Text("Rating: \(rest.rating)")
-                stars(starNum: Int(truncating: NSNumber(value: rest.rating)))
-                Text("Price: \(rest.price)")
+                HStack{
+                    Text("Rating:")
+                    stars(starNum: Int(truncating: NSNumber(value: rest.rating)))
+                }
+                
+                Text("Price: \(givePricing())")
                 
             }
             .font(.system(size: 14))
            
         }   // End of HStack
+    }
+    
+    func givePricing() -> String
+    {
+        if (rest.price.count == 0)
+        {
+            return "Unavailable"
+        }
+        else
+        {
+            return rest.price
+        }
     }
     
     
