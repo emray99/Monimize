@@ -305,6 +305,7 @@
 				5C9758BC263769FE00EAF28F /* GadgetMainPage.swift */,
 				5C9758BF26376A1700EAF28F /* QRCodePage.swift */,
 				5C9758C526376A3200EAF28F /* CurrencyConverterPage.swift */,
+				5C5C5F17263786EB00A31426 /* NewsDetails.swift */,
 				5C5EA0E62640E45B00BE6AD5 /* PasswordSet.swift */,
 			);
 			name = Gadgets;
@@ -326,7 +327,6 @@
 				5C46BE0026362E710052EA29 /* AddMovie.swift */,
 				5C5C5F11263786D800A31426 /* NewsList.swift */,
 				5C5C5F14263786E200A31426 /* NewsItem.swift */,
-				5C5C5F17263786EB00A31426 /* NewsDetails.swift */,
 			);
 			name = Recreation;
 			sourceTree = "<group>";

@@ -83,6 +83,12 @@ struct BudgetDetails: View {
                     
             }
         } // End of Form
+        .onAppear() {
+            self.createPlayer()
+        }
+        .onAppear() {
+            self.audioPlayer.stopAudioPlayer()
+        }
         .navigationBarTitle(Text("Budget Details"), displayMode: .inline)
         .font(.system(size: 14))
     }

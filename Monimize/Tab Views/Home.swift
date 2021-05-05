@@ -122,10 +122,10 @@ struct Home: View {
     
     var totalSum: Double {
         let list = userData.budgetsList
-        let sum = list.reduce(0, {$0 + $1.amount * currencyConversionRate(from: $1.currency, to: "USD")})
+        let sum = list.reduce(0, {$0 + $1.amount * currencyConversionRate(from: $1.currency, to: "USD")}) // total expense in USD.
         let userDefaults = UserDefaults(suiteName: "group.dataCache")
         userDefaults?.setValue("Total Expense: $\(String(format: "%.2f", sum))", forKey: "text")
-        WidgetCenter.shared.reloadAllTimelines()
+        WidgetCenter.shared.reloadAllTimelines() // update in real time
         
         return sum
     }
