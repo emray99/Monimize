@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BudgetItem: View {
     let budget: BudgetStruct
+    let currencyDict = ["USD": "$", "AUD": "A$", "CAD": "C$", "EUR": "€", "GBP": "£", "JPY": "¥"]
 
     @EnvironmentObject var userData: UserData
     var body: some View {
@@ -46,7 +47,7 @@ struct BudgetItem: View {
            numberFormatter.usesGroupingSeparator = true
            numberFormatter.groupingSize = 3
           
-           let bAmount = "$" + numberFormatter.string(from: amount as NSNumber)!
+        let bAmount = "$" + numberFormatter.string(from: amount as NSNumber)!
            return Text(bAmount)
        }
 }

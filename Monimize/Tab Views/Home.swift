@@ -16,11 +16,14 @@ struct Home: View {
     
 
     @EnvironmentObject var userData: UserData
-    
+    //var totalSum = userData.budgetsList.map({$0.amount}).reduce(0, +)
     var body: some View {
         NavigationView {
             
         Form{
+            Text("Total Expense: $30,000")
+                .font(.title)
+                .padding()
             if (userData.budgetsList.count == 0)
             {
                 Section(header: Text("My Recent Expenses")) {
@@ -82,6 +85,7 @@ struct Home: View {
                         
                        
                     }   // End of NavigationView
+                    .navigationBarHidden(true)
                     .navigationViewStyle(StackNavigationViewStyle())
                 
             }
@@ -90,6 +94,7 @@ struct Home: View {
         }
   
     }
+    
     
         
 }
