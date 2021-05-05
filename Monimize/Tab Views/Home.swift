@@ -9,7 +9,13 @@ import SwiftUI
 import SwiftUICharts
 
 
-
+extension Double {
+    /// Rounds the double to decimal places value
+    func roundedtoPlaces( places:Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return (self * divisor).rounded() / divisor
+    }
+}
 struct Home: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(fetchRequest: SavingItem.allSavingItemsFetchRequest()) var allSavingItems: FetchedResults<SavingItem>
@@ -21,7 +27,7 @@ struct Home: View {
         NavigationView {
             
         Form{
-            Text("Total Expense: $30,000")
+            Text("Total Expense: $\(String(format: "%.2f", totalSum))")
                 .font(.title)
                 .padding()
             if (userData.budgetsList.count == 0)
@@ -94,7 +100,10 @@ struct Home: View {
         }
   
     }
-    
+    var totalSum: Double {
+        let list = userData.budgetsList
+        return list.reduce(0, {$0 + $1.amount})
+    }
     
         
 }
