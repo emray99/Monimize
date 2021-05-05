@@ -47,7 +47,9 @@ struct BudgetItem: View {
            numberFormatter.usesGroupingSeparator = true
            numberFormatter.groupingSize = 3
           
-        let bAmount = "$" + numberFormatter.string(from: amount as NSNumber)!
+        let sign = currencyDict[budget.currency]!
+        
+        let bAmount = sign + numberFormatter.string(from: amount as NSNumber)!
            return Text(bAmount)
        }
 }
