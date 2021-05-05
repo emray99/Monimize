@@ -126,7 +126,7 @@ struct Home: View {
         userDefaults?.setValue("Total Expense: $\(list.reduce(0, {$0 + $1.amount}))", forKey: "text")
         WidgetCenter.shared.reloadAllTimelines()
         
-        return list.reduce(0, {$0 + $1.amount})
+        return list.reduce(0, {$0 + $1.amount * currencyConversionRate(from: $1.currency, to: "USD")})
     }
     
         

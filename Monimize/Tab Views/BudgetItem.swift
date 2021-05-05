@@ -32,7 +32,7 @@ struct BudgetItem: View {
                 
                 budgetAmount
 
-                Text(budget.currency)
+                Text(budget.date)
 
             }
             .font(.system(size: 14))
