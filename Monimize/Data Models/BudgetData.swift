@@ -12,11 +12,13 @@ import CoreLocation
 
 var budgetStructList = [BudgetStruct]()
 
+var orderedSearchableBudgetList = [String]()
 // Global Variable
 var audioSession = AVAudioSession()
 
 public func readBudgetDataFile() {
     var fileExistsInDocumentDirectory = false
+    var documentDirectoryHasFiles = false
     let jsonDataFullFilename = "BudgetDataM.json"
     
     let urlOfJsonFileInDocumentDirectory = documentDirectory.appendingPathComponent(jsonDataFullFilename)
@@ -25,19 +27,22 @@ public func readBudgetDataFile() {
         _ = try Data(contentsOf: urlOfJsonFileInDocumentDirectory)
         
         // MultimediaNotesData.json file exists in the document directory
-        fileExistsInDocumentDirectory = true
+        documentDirectoryHasFiles = true
         
         budgetStructList = decodeJsonFileIntoArrayOfStructs(fullFilename: jsonDataFullFilename, fileLocation: "Document Directory")
         print("BudgetData is loaded from document directory")
         
     } catch {
-        /*
-         MultimediaNotesData.json file does not exist in the document directory; Load it from the main bundle.
-         This happens only once when the app is launched for the very first time.
-         */
         
+        documentDirectoryHasFiles = false
         budgetStructList = decodeJsonFileIntoArrayOfStructs(fullFilename: jsonDataFullFilename, fileLocation: "Main Bundle")
         print("BudgetData is loaded from main bundle")
+        
+        for budget in budgetStructList {
+            let selectedBudgetAttributesForSearch = "\(budget.id)|\(budget.title)|\(budget.note)|\(budget.category)|\(budget.date)"
+           
+            orderedSearchableBudgetList.append(selectedBudgetAttributesForSearch)
+        }
     }
     
     if !fileExistsInDocumentDirectory {
@@ -57,6 +62,23 @@ public func readBudgetDataFile() {
             copyFileFromMainBundleToDocumentDirectory(filename: array1[0], fileExtension: array1[1], folderName: "AudioFiles")
         }
     }
+    
+    if documentDirectoryHasFiles {
+        // Obtain URL of the file in document directory on the user's device
+        let urlOfFileInDocDir = documentDirectory.appendingPathComponent("OrderedSearchableBudgetList")
+       
+        // Instantiate an NSArray object and initialize it with the contents of the file
+        let arrayFromFile: NSArray? = NSArray(contentsOf: urlOfFileInDocDir)
+       
+        if let arrayObtained = arrayFromFile {
+            // Store the unique id of the created array into the global variable
+            orderedSearchableBudgetList = arrayObtained as! [String]
+        } else {
+            print("OrderedSearchableBudgetList file is not found in document directory on the user's device!")
+        }
+    }
+    
+    
     
 }
 
@@ -81,6 +103,9 @@ public func writeBudgetsDataFile() {
     } else {
         fatalError("Unable to encode budget data!")
     }
+    
+    let urlOfFileInDocDirectory = documentDirectory.appendingPathComponent("OrderedSearchableBudgetList")
+    (orderedSearchableBudgetList as NSArray).write(to: urlOfFileInDocDirectory, atomically: true)
 }
 
 /*

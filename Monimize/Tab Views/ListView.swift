@@ -10,16 +10,17 @@ import SwiftUI
 struct ListView: View {
 
     @EnvironmentObject var userData: UserData
+    @State private var searchItem = ""
     var body: some View {
         NavigationView {
             List {
-                /*
-                 Each NSManagedObject has internally assigned unique ObjectIdentifier
-                 used by ForEach to display the Songs in a dynamic scrollable list.
-                 */
-                ForEach(userData.budgetsList) { aBudget in
-                    NavigationLink(destination: BudgetDetails(budget: aBudget)) {
-                        BudgetItem(budget: aBudget)
+                SearchBar(searchItem: $searchItem, placeholder: "Search Expense Record")
+                
+                ForEach(userData.searchableOrderedBudgetsList.filter {self.searchItem.isEmpty ? true : $0.localizedStandardContains(self.searchItem)}, id: \.self)
+                { item in
+                    NavigationLink(destination: BudgetDetails(budget: self.searchItemBudget(searchListItem: item)))
+                    {
+                        BudgetItem(budget: self.searchItemBudget(searchListItem: item))
                     }
                 }
                 .onDelete(perform: delete)
@@ -37,6 +38,18 @@ struct ListView: View {
             // Use single column navigation view for iPhone and iPad
             .navigationViewStyle(StackNavigationViewStyle())
     }
+    
+    func searchItemBudget(searchListItem: String) -> BudgetStruct {
+        /*
+         searchListItem = "id|name|alpha2code|capital|languages|currency"
+         country id = searchListItem.components(separatedBy: "|")[0]
+         */
+        // Find the index number of countriesList matching the country attribute 'id'
+        let index = userData.budgetsList.firstIndex(where: {$0.id.uuidString == searchListItem.components(separatedBy: "|")[0]})!
+       
+        return userData.budgetsList[index]
+    }
+    
     func delete(at offsets: IndexSet) {
        
         if let index = offsets.first {
@@ -65,9 +78,10 @@ struct ListView: View {
            
             // Remove the selected photo from the list
             userData.budgetsList.remove(at: index)
-           
+            userData.searchableOrderedBudgetsList.remove(at: index)
             // Set the global variable point to the changed list
             budgetStructList = userData.budgetsList
+            orderedSearchableBudgetList = userData.searchableOrderedBudgetsList
         }
     }
 }

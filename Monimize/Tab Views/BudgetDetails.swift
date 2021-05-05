@@ -19,15 +19,17 @@ struct BudgetDetails: View {
             Section(header: Text("Budget Title")) {
                 Text(budget.title)
             }
-            
-            Section(header: Text("Budget Photo")) {
-                // This public function is given in UtilityFunctions.swift
-                getImageFromDocumentDirectory(filename: budget.photoFilename.components(separatedBy: ".")[0], fileExtension: budget.photoFilename.components(separatedBy: ".")[1], defaultFilename: "DefaultTripPhoto")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(minWidth: 300, maxWidth: 500, alignment: .center)
- 
+            if budget.photoFilename != "" {
+                Section(header: Text("Budget Photo")) {
+                    // This public function is given in UtilityFunctions.swift
+                    getImageFromDocumentDirectory(filename: budget.photoFilename.components(separatedBy: ".")[0], fileExtension: budget.photoFilename.components(separatedBy: ".")[1], defaultFilename: "DefaultTripPhoto")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(minWidth: 300, maxWidth: 500, alignment: .center)
+     
+                }
             }
+           
             
             Section(header: Text("Budget Amount")) {
                 budgetAmount
@@ -49,7 +51,7 @@ struct BudgetDetails: View {
                 Text(budget.note)
             }
             
-            Section(header: Text("Show Multimedia note Photo Location On Map")) {
+            Section(header: Text("Show Expanse Location On Map")) {
                 NavigationLink(destination: noteLocationOnMap) {
                     HStack {
                         Image(systemName: "mappin.and.ellipse")

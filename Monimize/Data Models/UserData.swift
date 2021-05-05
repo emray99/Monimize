@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 final class UserData: ObservableObject {
   
@@ -78,9 +79,8 @@ final class UserData: ObservableObject {
    
     @Published var budgetsList = budgetStructList
     
+    @Published var searchableOrderedBudgetsList = orderedSearchableBudgetList
 
-
-    @Published var question = ""
    
    
  
