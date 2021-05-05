@@ -222,7 +222,7 @@ struct AddMovie: View {
      */
     var tripAddedAlert: Alert {
         Alert(title: Text("Movie Added!"),
-              message: Text("This movie is now saved as an item in the expense list!"),
+              message: Text("This movie is now saved as an item in the savings list!"),
               dismissButton: .default(Text("OK")) {
                   // Dismiss this View and go back
                   self.presentationMode.wrappedValue.dismiss()
@@ -277,22 +277,21 @@ struct AddMovie: View {
          =====================================================
         */
         
-        let newBudget = Budget(context: self.managedObjectContext)
+        let newSavings = SavingItem(context: self.managedObjectContext)
         
-        newBudget.amount = NSNumber(value: self.itemCost)
-        newBudget.audioFilename = ""
-        newBudget.category = "Leisure"
-        newBudget.currency = "USD"
-        newBudget.date = purchaseTimeString
-        newBudget.note = self.itemDescription
-        newBudget.title = "Movie: \(movie.title)"
+        newSavings.budgetDescription = self.itemDescription
+        newSavings.budgetName = "Movie: \(movie.title)"
+        newSavings.budgetValue = NSNumber(value: self.itemCost)
+        newSavings.currentSave = 0
+        newSavings.expectDate = purchaseTimeString
+        
         
         // ❎ Create a new Photo entity in CoreData managedObjectContext
-        let newPhoto = BudgetPhoto(context: self.managedObjectContext)
+        let newPhoto = SavingItemPhoto(context: self.managedObjectContext)
        
         // ❎ Dress up the new Photo entity
         if let imageData = self.photoImageData {
-            newPhoto.photoData = imageData
+            newPhoto.savingPhoto = imageData
         } else {
             // Obtain the album cover default image from Assets.xcassets as UIImage
             let photoUIImage = UIImage(named: "Leisure")
@@ -301,14 +300,14 @@ struct AddMovie: View {
             let photoData = photoUIImage?.jpegData(compressionQuality: 1.0)
            
             // Assign photoData to Core Data entity attribute of type Data (Binary Data)
-            newPhoto.photoData = photoData!
+            newPhoto.savingPhoto = photoData!
         }
         
-        newPhoto.latitude = 0.0
-        newPhoto.longitude = 0.0
+        newPhoto.savingLatitude = 0.0
+        newPhoto.savingLongitude = 0.0
         
-        newBudget.photo = newPhoto
-        newPhoto.budget = newBudget
+        newSavings.savingPhoto = newPhoto
+        newPhoto.savingItem = newSavings
        
      
         do {

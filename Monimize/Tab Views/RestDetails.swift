@@ -38,7 +38,7 @@ struct RestDetails: View {
                 
                 
                 Section(header: Text("Restaurant Price")) {
-                    Text(rest.price)
+                    Text(givePricing())
                 }
                 
                 
@@ -87,7 +87,7 @@ struct RestDetails: View {
                                                 .imageScale(.medium)
                                                 .font(Font.title.weight(.regular))
                                                 .foregroundColor(.blue)
-                                            Text("Add To Future Expense")
+                                            Text("Add To Saving Plan")
                                                 .font(.system(size: 16))
 
                                         }
@@ -133,6 +133,17 @@ struct RestDetails: View {
     
     
 }
+    func givePricing() -> String
+    {
+        if (rest.price.count == 0)
+        {
+            return "Unavailable"
+        }
+        else
+        {
+            return rest.price
+        }
+    }
     func findOutHowCostly() -> Double
     {
         let measurement = rest.price.count
@@ -150,18 +161,16 @@ struct RestDetails: View {
     
     func saveNewTrip() {
        
-        let newBudget = Budget(context: self.managedObjectContext)
-        
-        newBudget.amount = NSNumber(value: findOutHowCostly())
-        newBudget.audioFilename = ""
-        newBudget.category = "Food & Dining"
-        newBudget.currency = "USD"
-        newBudget.date = "Future Trip"
-        newBudget.note = "Giving it a try!"
-        newBudget.title = "A food trip to: \(rest.name)"
+        let newSavings = SavingItem(context: self.managedObjectContext)
+        newSavings.budgetDescription = "Giving this restaurant a try!"
+        newSavings.budgetName = "Visit: \(rest.name)"
+        newSavings.budgetValue = NSNumber(value: findOutHowCostly())
+        newSavings.currentSave = 0
+        newSavings.expectDate = "Future Visit!"
+
         
         
-        let newPhoto = BudgetPhoto(context: self.managedObjectContext)
+        let newPhoto = SavingItemPhoto(context: self.managedObjectContext)
        
         // ❎ Dress up the new Photo entity
     
@@ -172,13 +181,13 @@ struct RestDetails: View {
             let photoData = photoUIImage?.jpegData(compressionQuality: 1.0)
            
             // Assign photoData to Core Data entity attribute of type Data (Binary Data)
-            newPhoto.photoData = photoData!
-            newPhoto.latitude = NSNumber(value: rest.latitude)
-            newPhoto.longitude = NSNumber(value: rest.longitude)
+        newPhoto.savingPhoto = photoData!
+        newPhoto.savingLatitude = NSNumber(value: rest.latitude)
+        newPhoto.savingLongitude = NSNumber(value: rest.longitude)
         
        
-        newBudget.photo = newPhoto
-        newPhoto.budget = newBudget
+        newSavings.savingPhoto = newPhoto
+        newPhoto.savingItem = newSavings
        
         /*
          =============================================
@@ -198,7 +207,7 @@ struct RestDetails: View {
 
             Alert(title: Text("Restaurant Added!"),
 
-                  message: Text("This restaurant is now added as an item in the expense list as a future food trip! The budget is set based on the suggested price range"),
+                  message: Text("This restaurant is now added as an item in the savings list as a future food trip! The budget is set based on the suggested price range"),
 
                   dismissButton: .default(Text("OK")) )
 

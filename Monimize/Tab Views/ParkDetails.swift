@@ -115,7 +115,7 @@ struct ParkDetails: View {
                                             .imageScale(.medium)
                                             .font(Font.title.weight(.regular))
                                             .foregroundColor(.blue)
-                                        Text("Add To Future Expense")
+                                        Text("Add To Saving Plan")
                                             .font(.system(size: 16))
 
                                     }
@@ -133,18 +133,17 @@ struct ParkDetails: View {
     
     func saveNewTrip() {
        
-        let newBudget = Budget(context: self.managedObjectContext)
+        let newSavings = SavingItem(context: self.managedObjectContext)
         
-        newBudget.amount = NSNumber(value: (park.ticketPrice + 300))
-        newBudget.audioFilename = ""
-        newBudget.category = "Leisure"
-        newBudget.currency = "USD"
-        newBudget.date = "Future Travel!"
-        newBudget.note = park.description
-        newBudget.title = "A trip to \(park.name)"
+        newSavings.budgetDescription = park.description
+        newSavings.budgetName = "A trip to \(park.name)"
+        newSavings.budgetValue = NSNumber(value: (park.ticketPrice + 300))
+        newSavings.currentSave = 0
+        newSavings.expectDate = "Future Travel!"
         
+
         
-        let newPhoto = BudgetPhoto(context: self.managedObjectContext)
+        let newPhoto = SavingItemPhoto(context: self.managedObjectContext)
        
         // ❎ Dress up the new Photo entity
     
@@ -155,13 +154,13 @@ struct ParkDetails: View {
             let photoData = photoUIImage?.jpegData(compressionQuality: 1.0)
            
             // Assign photoData to Core Data entity attribute of type Data (Binary Data)
-            newPhoto.photoData = photoData!
-            newPhoto.latitude = NSNumber(value: park.latitude)
-            newPhoto.longitude = NSNumber(value: park.longitude)
+        newPhoto.savingPhoto = photoData!
+        newPhoto.savingLatitude = NSNumber(value: park.latitude)
+        newPhoto.savingLongitude = NSNumber(value: park.longitude)
         
        
-        newBudget.photo = newPhoto
-        newPhoto.budget = newBudget
+        newSavings.savingPhoto = newPhoto
+        newPhoto.savingItem = newSavings
        
         /*
          =============================================
@@ -182,7 +181,7 @@ struct ParkDetails: View {
 
             Alert(title: Text("Trip Added!"),
 
-                  message: Text("This National Park is now added as an item in the expense list as a future trip! The budget is initially set to park entry fee + $300"),
+                  message: Text("This National Park is now added as an item in the savings list as a future trip! The budget is initially set to park entry fee + $300"),
 
                   dismissButton: .default(Text("OK")) )
 

@@ -193,7 +193,7 @@ struct NowPlayingDetails: View {
         .navigationBarItems(trailing:
                                 NavigationLink(destination: AddMovie(movie: movie)) {
                 //Image(systemName: "plus")
-                 Text("SaveToExpenses")
+                 Text("Add to Saving Plan")
             })
         
     
