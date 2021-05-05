@@ -25,7 +25,7 @@ struct Provider: TimelineProvider {
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         
         let userDefaults = UserDefaults(suiteName: "group.dataCache")
-        let text = userDefaults?.value(forKey: "text") as? String ?? "No Text"
+        let text = userDefaults?.value(forKey: "text") as? String ?? "Total Expense: N/A"
         
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {

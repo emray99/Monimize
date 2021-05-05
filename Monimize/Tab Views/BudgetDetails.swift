@@ -11,7 +11,7 @@ import AVFoundation
 
 struct BudgetDetails: View {
     let budget: BudgetStruct
-
+    let currencyDict = ["USD": "$", "AUD": "A$", "CAD": "C$", "EUR": "€", "GBP": "£", "JPY": "¥"]
     @EnvironmentObject var userData: UserData
     @EnvironmentObject var audioPlayer: AudioPlayer
     var body: some View {
@@ -94,8 +94,8 @@ struct BudgetDetails: View {
            numberFormatter.numberStyle = .decimal
            numberFormatter.usesGroupingSeparator = true
            numberFormatter.groupingSize = 3
-          
-           let bAmount = "$" + numberFormatter.string(from: amount as NSNumber)!
+           let sign = currencyDict[budget.currency]!
+           let bAmount = sign + numberFormatter.string(from: amount as NSNumber)!
            return Text(bAmount)
        }
     
