@@ -207,7 +207,7 @@ struct AddBudget2: View {
         
     }
     var budgetAddedAlert: Alert {
-        Alert(title: Text("Trip Added!"),
+        Alert(title: Text("Expense Added!"),
               message: Text("New expense is added to the list."),
               dismissButton: .default(Text("OK")){
                 // Dismiss this Modal View and go back to the previous view in the navigation hierarchy
