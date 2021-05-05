@@ -24,45 +24,19 @@ struct Home: View {
     @EnvironmentObject var userData: UserData
     //var totalSum = userData.budgetsList.map({$0.amount}).reduce(0, +)
     var body: some View {
+        
         NavigationView {
             
         Form{
             Text("Total Expense: $\(String(format: "%.2f", totalSum))")
                 .font(.title)
                 .padding()
-            if (userData.budgetsList.count == 0)
-            {
-                Section(header: Text("My Recent Expenses")) {
-                    
-                    Text("No expense items recorded")
-                    
-                   
-                }
-                
-            }
-            else
-            {
-                Section(header: Text("My Recent Expenses")) {
-                    
-                    List {
-                        /*
-                         Each NSManagedObject has internally assigned unique ObjectIdentifier
-                         used by ForEach to display the Songs in a dynamic scrollable list.
-                         */
-                        let first3 = userData.budgetsList.prefix(3)
-                        ForEach(first3) { aBudget in
-                            NavigationLink(destination: BudgetDetails(budget: aBudget)) {
-                                BudgetItem(budget: aBudget)
-                            }
-                        }
-                        
-                       
-                    }   // End of List
-                    
-                   
-                }
-                
-            }
+            PieChartView(
+                data: [22, 17, 32, 99, 78, 64],
+                title: "Pie Chart",
+                legend: "Legendary"
+            )
+            
             
             if (allSavingItems.count == 0)
             {
