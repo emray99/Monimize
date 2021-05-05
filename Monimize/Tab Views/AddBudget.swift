@@ -288,6 +288,7 @@ struct AddBudget: View {
     
     func addNewBudget() {
         let date = Date()
+        let bid = UUID()
         let currdateFormatter = DateFormatter()
         currdateFormatter.dateFormat = "yyyy-MM-dd' at 'HH:mm:ss"
         let currentDateTime = currdateFormatter.string(from: date)
@@ -304,9 +305,12 @@ struct AddBudget: View {
         } else {
             print("Unable to write photo image to document directory!")
         }
-        let newBudget = BudgetStruct(id: UUID(), title: self.title, currency: self.currencyList[selectedIndex], amount: self.value, note: self.note, category: self.categoryList[categoryIndex], audioFilename: audioFullFilename, date: currentDateTime, photoFilename: newPhotoName, latitude: currentGeolocation.latitude, longitude: currentGeolocation.longitude)
+        let newBudget = BudgetStruct(id: bid, title: self.title, currency: self.currencyList[selectedIndex], amount: self.value, note: self.note, category: self.categoryList[categoryIndex], audioFilename: audioFullFilename, date: currentDateTime, photoFilename: newPhotoName, latitude: currentGeolocation.latitude, longitude: currentGeolocation.longitude)
+        let selectedBudgetAttributesForSearch = "\(bid)|\(title)|\(note)|\(categoryList[categoryIndex])|\(currentDateTime)"
         userData.budgetsList.append(newBudget)
         budgetStructList = userData.budgetsList
+        userData.searchableOrderedBudgetsList.append(selectedBudgetAttributesForSearch)
+        orderedSearchableBudgetList = userData.searchableOrderedBudgetsList
         audioFullFilename = ""
         self.photoImageData = nil
         userData.voiceRecordingDuration = ""
