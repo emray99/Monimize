@@ -77,8 +77,10 @@ struct Home: View {
                              Each NSManagedObject has internally assigned unique ObjectIdentifier
                              used by ForEach to display the Songs in a dynamic scrollable list.
                              */
+                            let last3 = self.allSavingItems.suffix(3)
+                            
                             let first3 = self.allSavingItems.prefix(3)
-                            ForEach(first3) { aSaving in
+                            ForEach(last3) { aSaving in
                                 NavigationLink(destination: SavingDetails(saving: aSaving)) {
                                     SavingListItem(saving: aSaving)
                                 }
