@@ -48,7 +48,7 @@ struct SavingDetails: View {
                 }
             }
             
-            Section(header: Text("Svaing Plan Title")) {
+            Section(header: Text("Saving Plan Title")) {
                 Text(saving.budgetName ?? "")
             }
             
@@ -107,7 +107,7 @@ struct SavingDetails: View {
             
  
         }   // End of Form
-        .navigationBarTitle(Text("Svaing Plan"), displayMode: .inline)
+        .navigationBarTitle(Text("Saving Plan"), displayMode: .inline)
         .font(.system(size: 14))
        
     }   // End of body
@@ -157,10 +157,15 @@ public func getSavingPercent(saving: SavingItem) -> Double{
 }
 
 public func addUSDSymbol(number: NSNumber) -> String{
-    var stringWithSymbol = number.stringValue
-    stringWithSymbol.append(" $")
+    //var stringWithSymbol = number.stringValue
+    //stringWithSymbol.append(" $")
     
-    return stringWithSymbol
+    //"$ ".append(stringWithSymbol)
+    
+    var stringWithSymobl = number.stringValue
+    
+    
+    return "$ \(stringWithSymobl)"
     
 }
  
