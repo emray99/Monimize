@@ -14,7 +14,7 @@ struct BudgetItem: View {
     var body: some View {
         HStack {
             // This public function is given in UtilityFunctions.swift
-            Image("Automobile")
+            Image(budget.category)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 40.0)

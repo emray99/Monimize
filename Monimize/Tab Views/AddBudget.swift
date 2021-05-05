@@ -44,165 +44,163 @@ struct AddBudget: View {
         return numberFormatter
     }()
     var body: some View {
-        NavigationView {
-            Form {
-                Section(header: Text("Describe your budget"), footer:
-                            Button(action: {
-                                self.dismissKeyboard()
+        Form {
+            Section(header: Text("Describe your budget"), footer:
+                        Button(action: {
+                            self.dismissKeyboard()
 
-                            }) {
-                                Image(systemName: "keyboard")
-                                    .font(Font.title.weight(.light))
-                                    .foregroundColor(.blue)
-                            }) {
-                    VStack(alignment: .leading) {
-                        HStack {
-                            Image(systemName: "textbox")
+                        }) {
+                            Image(systemName: "keyboard")
+                                .font(Font.title.weight(.light))
+                                .foregroundColor(.blue)
+                        }) {
+                VStack(alignment: .leading) {
+                    HStack {
+                        Image(systemName: "textbox")
+                            .foregroundColor(Color.gray)
+                            .font(.system(size: 24, weight: .regular))
+                        TextField("Name", text: $title)
+                            .disableAutocorrection(true)
+                            .autocapitalization(.words)
+                            .padding(8)
+                    }
+                    .frame(height: 50)
+                    Divider()
+                    HStack {
+                        Image(systemName: "plusminus.circle")
+                            .foregroundColor(Color.gray)
+                            .font(.system(size: 26, weight: .regular))
+                        TextField("Amount", value: $value, formatter: moneyFormatter)
+                            .keyboardType(.numbersAndPunctuation)
+    
+                        
+                        Button(action: {
+                            self.showCurrencyPicker = true
+                        }) {
+                            Text(currencyList[selectedIndex])
                                 .foregroundColor(Color.gray)
-                                .font(.system(size: 24, weight: .regular))
-                            TextField("Name", text: $title)
-                                .disableAutocorrection(true)
-                                .autocapitalization(.words)
-                                .padding(8)
                         }
-                        .frame(height: 50)
-                        Divider()
-                        HStack {
-                            Image(systemName: "plusminus.circle")
-                                .foregroundColor(Color.gray)
-                                .font(.system(size: 26, weight: .regular))
-                            TextField("Amount", value: $value, formatter: moneyFormatter)
-                                .keyboardType(.numbersAndPunctuation)
-        
-                            
-                            Button(action: {
-                                self.showCurrencyPicker = true
-                            }) {
-                                Text(currencyList[selectedIndex])
-                                    .foregroundColor(Color.gray)
-                            }
-                            .sheet(isPresented: self.$showCurrencyPicker) {
-                                Picker("", selection: $selectedIndex){
-                                    ForEach(0 ..< currencyList.count, id: \.self) {
-                                        Text(currencyList[$0])
-                                            .font(.system(size: 26))
-                                    }
+                        .sheet(isPresented: self.$showCurrencyPicker) {
+                            Picker("", selection: $selectedIndex){
+                                ForEach(0 ..< currencyList.count, id: \.self) {
+                                    Text(currencyList[$0])
+                                        .font(.system(size: 26))
                                 }
-                                //.frame(minWidth: 300, maxWidth: 500, alignment: .leading)
                             }
-                            
+                            //.frame(minWidth: 300, maxWidth: 500, alignment: .leading)
                         }
-                        .frame(height: 40)
-                        Divider()
-                        HStack{
-                            Image(systemName: "note.text.badge.plus")
-                                .foregroundColor(Color.gray)
-                                .font(.system(size: 26, weight: .regular))
-                            Text("Add Note for this budget")
-                                .foregroundColor(Color.gray)
-                        }
-                        TextEditor(text: $note)
-                            .frame(height: 100)
-                            .font(.custom("Helvetica", size: 14))
-                            .foregroundColor(.primary)
-                            .multilineTextAlignment(.leading)
+                        
                     }
+                    .frame(height: 40)
+                    Divider()
+                    HStack{
+                        Image(systemName: "note.text.badge.plus")
+                            .foregroundColor(Color.gray)
+                            .font(.system(size: 26, weight: .regular))
+                        Text("Add Note for this budget")
+                            .foregroundColor(Color.gray)
+                    }
+                    TextEditor(text: $note)
+                        .frame(height: 100)
+                        .font(.custom("Helvetica", size: 14))
+                        .foregroundColor(.primary)
+                        .multilineTextAlignment(.leading)
                 }
-                .alert(isPresented: $showBudgetAddedAlert, content: { self.budgetAddedAlert })
-                Section(header: Text("Picture for this budget")){
-                    Picker("Select Photo Type", selection: $photoTakeOrPickIndex) {
-                        ForEach(0 ..< photoTakeOrPickChoices.count, id: \.self) { index in
-                           Text(self.photoTakeOrPickChoices[index]).tag(index)
-                       }
+            }
+            .alert(isPresented: $showBudgetAddedAlert, content: { self.budgetAddedAlert })
+            Section(header: Text("Picture for this budget")){
+                Picker("Select Photo Type", selection: $photoTakeOrPickIndex) {
+                    ForEach(0 ..< photoTakeOrPickChoices.count, id: \.self) { index in
+                       Text(self.photoTakeOrPickChoices[index]).tag(index)
+                   }
+                }
+                .frame(minWidth: 300, maxWidth: 500, alignment: .center)
+                .pickerStyle(SegmentedPickerStyle())
+                //.padding(.horizontal)
+                
+                if photoTakeOrPickIndex == 0 {
+                    Button(action: {
+                        self.showImagePicker = true
+                    }) {
+                        Text("Get Photo")
+                            .padding(.horizontal, 110)
+                        
                     }
-                    .frame(minWidth: 300, maxWidth: 500, alignment: .center)
-                    .pickerStyle(SegmentedPickerStyle())
-                    //.padding(.horizontal)
-                    
-                    if photoTakeOrPickIndex == 0 {
-                        Button(action: {
-                            self.showImagePicker = true
-                        }) {
-                            Text("Get Photo")
-                                .padding(.horizontal, 110)
-                            
-                        }
-                        .sheet(isPresented: self.$showImagePicker) {
-                            PhotoCaptureView(showImagePicker: self.$showImagePicker,
-                                             photoImageData: self.$photoImageData,
-                                             cameraOrLibrary: "Camera")
-                    }
+                    .sheet(isPresented: self.$showImagePicker) {
+                        PhotoCaptureView(showImagePicker: self.$showImagePicker,
+                                         photoImageData: self.$photoImageData,
+                                         cameraOrLibrary: "Camera")
+                }
 
-                    } else {
-                        Button(action: {
-                            self.showImagePicker = true
-                        }) {
-                            Text("Get Photo")
-                                .padding(.horizontal, 110)
-                        }
-                        .sheet(isPresented: self.$showImagePicker) {
-                            PhotoCaptureView(showImagePicker: self.$showImagePicker,
-                                             photoImageData: self.$photoImageData,
-                                             cameraOrLibrary: "Photo Library")
-                        }
+                } else {
+                    Button(action: {
+                        self.showImagePicker = true
+                    }) {
+                        Text("Get Photo")
+                            .padding(.horizontal, 110)
                     }
-                    
+                    .sheet(isPresented: self.$showImagePicker) {
+                        PhotoCaptureView(showImagePicker: self.$showImagePicker,
+                                         photoImageData: self.$photoImageData,
+                                         cameraOrLibrary: "Photo Library")
+                    }
                 }
                 
-                Section(header: Text("Picked Photo"))
+            }
+            
+            Section(header: Text("Picked Photo"))
+            {
+                if (photoImageData == nil)
                 {
-                    if (photoImageData == nil)
-                    {
-                        Image("DefaultMultimediaNotePhoto")
+                    Image("DefaultMultimediaNotePhoto")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 100.0)
+                    
+                }
+                else
+                {
+                    getImageFromBinaryData(binaryData: self.photoImageData, defaultFilename: "ImageUnavailable")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 100.0)
-                        
-                    }
-                    else
-                    {
-                        getImageFromBinaryData(binaryData: self.photoImageData, defaultFilename: "ImageUnavailable")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 100.0)
-                    }
-                    
                 }
                 
-                Section(header: Text("Choose a category for this budget")) {
-                    Picker("", selection: $categoryIndex) {
-                        ForEach(0 ..< categoryList.count, id: \.self) {
-                            Text(self.categoryList[$0])
-                        }
-                    }
-                    .pickerStyle(WheelPickerStyle())
-                    .frame(minWidth: 300, maxWidth: 500, alignment: .leading)
-                }
-                
-                Section(header: Text("Voice Recording")) {
-                    Button(action: {
-                        self.voiceRecordingMicrophoneTapped()
-                    }) {
-                        voiceRecordingMicrophoneLabel
+            }
+            
+            Section(header: Text("Choose a category for this budget")) {
+                Picker("", selection: $categoryIndex) {
+                    ForEach(0 ..< categoryList.count, id: \.self) {
+                        Text(self.categoryList[$0])
                     }
                 }
-                
-            } // End of Form
-            .alert(isPresented: $showInputDataMissingAlert, content: { self.inputDataMissingAlert })
-            .navigationBarTitle(Text("Add New Expense"), displayMode: .inline)
-            .navigationBarItems(trailing:
+                .pickerStyle(WheelPickerStyle())
+                .frame(minWidth: 300, maxWidth: 500, alignment: .leading)
+            }
+            
+            Section(header: Text("Voice Recording")) {
                 Button(action: {
-                    if self.inputDataValidated() {
-                        self.addNewBudget()
-                        self.showBudgetAddedAlert = true
-                    } else {
-                        self.showInputDataMissingAlert = true
-                    }
+                    self.voiceRecordingMicrophoneTapped()
                 }) {
-                    Text("Save")
-                })
-            .font(.system(size: 14))
-        }
+                    voiceRecordingMicrophoneLabel
+                }
+            }
+            
+        } // End of Form
+        .alert(isPresented: $showInputDataMissingAlert, content: { self.inputDataMissingAlert })
+        .navigationBarTitle(Text("Add New Expense"), displayMode: .inline)
+        .navigationBarItems(trailing:
+            Button(action: {
+                if self.inputDataValidated() {
+                    self.addNewBudget()
+                    self.showBudgetAddedAlert = true
+                } else {
+                    self.showInputDataMissingAlert = true
+                }
+            }) {
+                Text("Save")
+            })
+        .font(.system(size: 14))
         
     }
     var budgetAddedAlert: Alert {
@@ -235,13 +233,18 @@ struct AddBudget: View {
     
     var voiceRecordingMicrophoneLabel: some View {
         VStack {
-            Image(systemName: recordingVoice ? "mic.fill" : "mic.slash.fill")
-                .imageScale(.large)
-                .font(Font.title.weight(.medium))
-                .foregroundColor(.blue)
-                .padding()
-            Text(recordingVoice ? "Recording your voice... Tap to Stop!" : "Start Recording!")
-                .multilineTextAlignment(.center)
+            HStack {
+                Spacer()
+                Image(systemName: recordingVoice ? "mic.fill" : "mic.slash.fill")
+                    .imageScale(.large)
+                    .font(Font.title.weight(.medium))
+                    .foregroundColor(.blue)
+                    .padding()
+                Text(recordingVoice ? "Recording your voice... Tap to Stop!" : "Start Recording!")
+                    .multilineTextAlignment(.center)
+                Spacer()
+            }
+            
         }
     }
     

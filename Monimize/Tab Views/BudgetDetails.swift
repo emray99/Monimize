@@ -33,6 +33,18 @@ struct BudgetDetails: View {
                 budgetAmount
             }
             
+            Section(header: Text("Budget Category")) {
+                HStack {
+                    Image(budget.category)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 20.0)
+                    
+                    Text(budget.category)
+                }
+                
+            }
+            
             Section(header: Text("Textual Note")) {
                 Text(budget.note)
             }

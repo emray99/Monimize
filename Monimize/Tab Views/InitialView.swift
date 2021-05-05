@@ -33,7 +33,7 @@ struct InitialView: View {
                         .background(Color.gray.opacity(0.1).edgesIgnoringSafeArea(.all))
                     }
                     .sheet(isPresented: $showSheet) {
-                        AddBudget()
+                        AddBudget2()
                     }
 //                    NavigationLink(destination: AddBudget()) {
 //                        HStack {
