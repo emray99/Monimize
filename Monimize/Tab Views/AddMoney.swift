@@ -21,10 +21,10 @@ struct AddMoney: View {
     
     @State private var showChangesAlert = false
     
-    // Primary Recipe Information
+    // Primary add money value
     @State private var addingMoney = 0.00
     
-    // Recipe Entity Changes
+    // saving Item Entity Changes
     @State private var changeValue = false
     
     let costFormatter: NumberFormatter = {
@@ -123,11 +123,11 @@ struct AddMoney: View {
     
     /*
      ---------------------------
-     MARK: - Save Recipe Changes
+     MARK: - Save add money change
      ---------------------------
      */
     func saveChanges() {
-        // Change Recipe attributes if updated
+        // add custom value of money into current saving
         
         if self.addingMoney != 0.0 {
             let current = Double(saving.currentSave!)
@@ -155,7 +155,7 @@ struct AddMoney: View {
     var currentValue: Text {
           let costOfTrip = saving.currentSave!.doubleValue
         
-          // Add thousand separators to trip cost
+          // Add thousand separators and symbols to current value
           let numberFormatter = NumberFormatter()
           numberFormatter.numberStyle = .decimal
           numberFormatter.usesGroupingSeparator = true
@@ -168,3 +168,4 @@ struct AddMoney: View {
       }
     
 }
+

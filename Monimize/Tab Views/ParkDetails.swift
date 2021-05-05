@@ -13,7 +13,7 @@ struct ParkDetails: View {
    
     @EnvironmentObject var userData: UserData
     
-    @State private var showCocktailAddedAlert = false
+    @State private var showParkAddedAlert = false
     @State private var selectedMapTypeIndex = 0
     @Environment(\.managedObjectContext) var managedObjectContext
 
@@ -107,7 +107,7 @@ struct ParkDetails: View {
 
                     Button(action: {
                                     self.saveNewTrip()
-                                    self.showCocktailAddedAlert = true
+                                    self.showParkAddedAlert = true
                                 }) {
 
                                     HStack {
@@ -127,7 +127,7 @@ struct ParkDetails: View {
         }   // End of Form
             .navigationBarTitle(Text("National Park Details"), displayMode: .inline)
             .font(.system(size: 14))
-        .alert(isPresented: $showCocktailAddedAlert, content: {self.cocktailAddedAlert})
+        .alert(isPresented: $showParkAddedAlert, content: {self.cocktailAddedAlert})
        
     }   // End of body
     

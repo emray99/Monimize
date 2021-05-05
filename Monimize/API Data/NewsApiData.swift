@@ -20,7 +20,7 @@ var newsFound = News(id: UUID(), title: "", author: "", language: "", time: "", 
  
 /*
 ====================================
-MARK: - Obtain Forecast Data from API
+MARK: - Obtain News Data from API
 ====================================
 */
 public func obtainNewsDataFromApi(query: String) {

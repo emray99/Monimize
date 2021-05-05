@@ -13,9 +13,7 @@ struct ParkSearchResutsList: View {
        
             List {
                 ForEach(parkResultsList) { aPark in
-
                     NavigationLink(destination: ParkDetails(park: aPark)) {
-
                         ParkItem(park: aPark)
 
                     }

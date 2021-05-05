@@ -69,6 +69,7 @@ struct FindNationalParkPage: View {
 
                 }
                 
+                //Display spinnig progressview while loading
                 if showProgressView{
                     Section{
                         ProgressView()
@@ -126,12 +127,8 @@ struct FindNationalParkPage: View {
 
                     }
                     
-                    
-                    
                 }
                 
-
-
 
             }   // End of Form
 
@@ -147,11 +144,6 @@ struct FindNationalParkPage: View {
     
     func searchApi() {
 
-        // Remove spaces, if any, at the beginning and at the end of the entered search query string
-
-
-        // Public function obtainCountryDataFromApi is given in CountryApiData.swift
-        
         parkResultsList.removeAll()
         parkIDList.removeAll()
         
@@ -177,19 +169,13 @@ struct FindNationalParkPage: View {
             Image(systemName: "exclamationmark.triangle")
 
                 .imageScale(.large)
-
                 .font(Font.title.weight(.medium))
-
                 .foregroundColor(.red)
-
                 .padding()
 
             Text("No National Park Found! Please enter another activity!")
-
                 .fixedSize(horizontal: false, vertical: true)   // Allow lines to wrap around
-
                 .multilineTextAlignment(.center)
-
                 .padding()
 
         }
@@ -201,8 +187,6 @@ struct FindNationalParkPage: View {
     }
     
     var showSearchResults: some View {
-
-        // Global variable countryFound is given in CountryApiData.swift
 
         if parkResultsList.isEmpty {
             return AnyView(notFoundMessage)

@@ -34,9 +34,6 @@ public func obtainYelpDataFromApi(category: String, query: String) {
     
     let myApiKey = "34w_zgQjejILCxIDpObrjDz62dyZ1mA2U2H321CYM0jZ4p-0K0Ixd3oZiKW2kHcVP2_WGFPQBtEIKc0Od0SUXxsSy6sNYQIM0BaTmNaIqmJrsf5fxaBORoFnB7qQYHYx"
     
-    
-
-        
     /*
      *************************
      *   API Documentation   *

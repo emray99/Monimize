@@ -70,7 +70,7 @@ struct Home: View {
             }
             else
             {
-                Section(header: Text("My Saving Plan recorded")) {
+                Section(header: Text("My Recent Saving Plans")) {
                     
                         List {
                             /*

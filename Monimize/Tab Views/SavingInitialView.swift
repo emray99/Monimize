@@ -35,19 +35,6 @@ struct SavingInitialView: View {
                     .sheet(isPresented: $showSheet) {
                         AddSavingPlan()
                     }
-//                    NavigationLink(destination: AddBudget()) {
-//                        HStack {
-//                            Image(systemName: "plus")
-//                                //.frame(width: 360)
-//                                .foregroundColor(.blue)
-//
-//                            Text("New Budget")
-//
-//                                .foregroundColor(.blue)
-//                        }
-//                        .frame(width: 320, height: 50)
-//                        .background(Color.gray.opacity(0.1).edgesIgnoringSafeArea(.all))
-//                    }
                     .cornerRadius(24.0)
                 }
             }
@@ -57,4 +44,5 @@ struct SavingInitialView: View {
     
 
 }
+
 

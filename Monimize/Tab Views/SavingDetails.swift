@@ -169,3 +169,4 @@ public func addUSDSymbol(number: NSNumber) -> String{
     
 }
  
+

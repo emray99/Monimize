@@ -17,7 +17,6 @@ struct MainSearchPage: View {
 
             ScrollView{
             ZStack {    // Background View
-
                 Color.gray.opacity(0.1).edgesIgnoringSafeArea(.all)
                 
                 VStack {
@@ -29,22 +28,16 @@ struct MainSearchPage: View {
             
                 VStack (alignment: .leading){    // Foreground View
                 
-
-                
                 NavigationLink(destination: showRecentMovies) {
 
                     HStack {
 
                         Image(systemName: "film.fill")
-
                             .imageScale(.large)
-
                             .font(Font.title.weight(.regular))
-
                             .foregroundColor(.blue)
 
                         Text("Find a movie!")
-
                             .font(.system(size: 20))
 
                     }
@@ -56,15 +49,11 @@ struct MainSearchPage: View {
                         HStack {
 
                             Image(systemName: "newspaper")
-
                                 .imageScale(.large)
-
                                 .font(Font.title.weight(.regular))
-
                                 .foregroundColor(.blue)
 
                             Text("Read the lastest news!")
-
                                 .font(.system(size: 20))
 
                         }
@@ -76,15 +65,11 @@ struct MainSearchPage: View {
                         HStack {
 
                             Image(systemName: "flame")
-
                                 .imageScale(.large)
-
                                 .font(Font.title.weight(.regular))
-
                                 .foregroundColor(.blue)
 
                             Text("   Find a Restaurant!")
-
                                 .font(.system(size: 20))
 
                         }
@@ -96,15 +81,11 @@ struct MainSearchPage: View {
                     HStack {
 
                         Image(systemName: "car")
-
                             .imageScale(.large)
-
                             .font(Font.title.weight(.regular))
-
                             .foregroundColor(.blue)
 
                         Text("Plan a trip to national park!")
-
                             .font(.system(size: 20))
 
                     }

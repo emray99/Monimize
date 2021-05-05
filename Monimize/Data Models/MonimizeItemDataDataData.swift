@@ -9,7 +9,7 @@ import SwiftUI
 
 import CoreData
  
-// Array of MusicAlbum structs for use only in this file
+// Array of saving & expense structs for use only in this file
 fileprivate var ExpenseStructList = [Expense]()
 fileprivate var SavingStructList = [SavingStruct]()
  
@@ -71,11 +71,11 @@ func populateDatabase() {
     for expense in ExpenseStructList {
         /*
          =====================================================
-         Create an instance of the Trip Entity and dress it up
+         Create an instance of the Expense Entity and dress it up
          =====================================================
         */
        
-        // ❎ Create an instance of the Trip entity in CoreData managedObjectContext
+        // ❎ Create an instance of the Expense entity in CoreData managedObjectContext
         let itemEntity = Item(context: managedObjectContext)
        
         // ❎ Dress it up by specifying its attributes
@@ -176,11 +176,11 @@ func populateSavingDatabase() {
     for savingItem in SavingStructList {
         /*
          =====================================================
-         Create an instance of the Trip Entity and dress it up
+         Create an instance of the Savings Entity and dress it up
          =====================================================
         */
        
-        // ❎ Create an instance of the Trip entity in CoreData managedObjectContext
+        // ❎ Create an instance of the Savings entity in CoreData managedObjectContext
         let savingItemEntity = SavingItem(context: managedObjectContext)
        
         // ❎ Dress it up by specifying its attributes

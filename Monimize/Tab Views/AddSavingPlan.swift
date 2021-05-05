@@ -19,14 +19,14 @@ struct AddSavingPlan: View {
     @State private var showSongAddedAlert = false
     @State private var showInputDataMissingAlert = false
    
-    // Song Entity
+    // savingItem Entity
     @State private var planTitle = ""
     @State private var currentMoney = 0.0
     @State private var planDescription = "\n \n \n "
     @State private var exceptDate = Date()
     @State private var targetMoney = 0.0
    
-    // Album Cover Photo
+    // saving Item photo
     @State private var showImagePicker = false
     @State private var photoImageData: Data? = nil
     @State private var photoTakeOrPickIndex = 1     // Pick from Photo Library
@@ -62,12 +62,7 @@ struct AddSavingPlan: View {
                 Section(header: Text("Saving Target")) {
                     TextField("0", value: $targetMoney, formatter: costFormatter)
                 }
-                /*Section(header: Text("Trip Notes")) {
-                    TextEditor(text: $tripNotes)
-                        .disableAutocorrection(true)
-                        .autocapitalization(.words)
-                }*/
-                
+              
                 Section(header: Text("Current Saved Money")) {
                     TextField("0", value: $currentMoney, formatter: costFormatter)
                 }
@@ -221,7 +216,7 @@ struct AddSavingPlan: View {
    
     /*
      ---------------------
-     MARK: - Save New Song
+     MARK: - Save new saving Item
      ---------------------
      */
     func saveNewSong() {
@@ -242,10 +237,10 @@ struct AddSavingPlan: View {
          =====================================================
         */
        
-        // ❎ Create a new Song entity in CoreData managedObjectContext
+        // ❎ Create a new saving Item entity in CoreData managedObjectContext
         let newSavingItem = SavingItem(context: self.managedObjectContext)
        
-        // ❎ Dress up the new Song entity
+        // ❎ Dress up the new savingItem entity
         newSavingItem.budgetName = self.planTitle
         newSavingItem.currentSave = NSNumber(value: self.currentMoney)
         newSavingItem.budgetValue = NSNumber(value: self.targetMoney)
@@ -303,4 +298,5 @@ struct AddSavingPlan: View {
  
  
  
+
 

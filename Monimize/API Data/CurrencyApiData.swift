@@ -7,36 +7,29 @@
 //
 
  
-
 import Foundation
 import SwiftUI
 
  
-
 // Global list of all currencies accessible in all Swift files
 var listOfAllCurrencies = [String]()
 
  
-
 // Register at https://free.currencyconverterapi.com/ to get your own API key
 let myApiKey = "14ddb644b116505bbfe8" //"3a2b62001295ece6f10b"
 
  
-
 /*
  ======================================
  MARK: - Obtain All Currencies from API
  ======================================
  */
 
- 
-
 public func obtainAllCurrenciesFromApi() {
 
     let apiUrl = "https://free.currconv.com/api/v7/currencies?apiKey=\(myApiKey)"
 
    
-
     /*
      *************************
      *   API Documentation   *
@@ -45,9 +38,7 @@ public func obtainAllCurrenciesFromApi() {
      The above API URL returns the following JSON object at the top level:
 
      {
-
          "results":{
-
                "ALL":{"currencyName":"Albanian Lek", "currencySymbol":"Lek", "id":"ALL"},
 
                "XCD":{"currencyName":"East Caribbean Dollar", "currencySymbol":"$", "id":"XCD"},

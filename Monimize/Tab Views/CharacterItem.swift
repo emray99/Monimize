@@ -55,7 +55,6 @@ struct CharacterItem: View {
     
     
     
-    
     func sniffDictionary() -> String{
         var combineString = ""
         

@@ -20,20 +20,7 @@ struct AddMovie: View {
    
     @State private var showTripAddedAlert = false
     @State private var showInputDataMissingAlert = false
-    
-    /*
-    @NSManaged public var itemCost: NSNumber?
-    @NSManaged public var itemName: String?
-    @NSManaged public var itemLocation: String?
-    @NSManaged public var itemDescription: String?
-    @NSManaged public var purchaseTime: String?
-    @NSManaged public var trailerID: String?
-    @NSManaged public var photo: Photo?*/
-    
-    /*@NSManaged public var latitude: NSNumber?
-    @NSManaged public var longitude: NSNumber?
-    @NSManaged public var itemPhoto: Data?
-    @NSManaged public var item: Item?*/
+  
     //Item Entity
     @State private var itemCost = 0.00
     @State private var itemName = ""
@@ -51,21 +38,6 @@ struct AddMovie: View {
     @State private var photoImageData: Data? = nil
     @State private var photoTakeOrPickIndex = 1     // Pick from Photo Library
    
-    
-    
-    /*
-     var title: String
-     var currency: String
-     var amount: Double
-     var note: String
-     var category: String
-     var audioFilename: String
-     var date: String
-     var photoFilename: String
-     var photoLatitude: Double
-     var photoLongitude: Double
-     */
-    
     
 
     var photoTakeOrPickChoices = ["Camera", "Photo Library"]
