@@ -70,7 +70,7 @@ struct ParkDetails: View {
             
             Section(header: Text("National Park One-time Entrance Fee"))
             {
-                Text("$\(park.ticketPrice)")
+                Text(giveGoodCost())
             }
             
             Section(header: Text("Select Map Type")) {
@@ -132,57 +132,35 @@ struct ParkDetails: View {
     
     func saveNewTrip() {
        
-       
-        /*
-         =====================================================
-         Create an instance of the Trip Entity and dress it up
-         =====================================================
-        */
-       
-        // ❎ Create a new Song entity in CoreData managedObjectContext
-        let newItem = Item(context: self.managedObjectContext)
-       
-        // ❎ Dress up the new Trip entity
+        let newBudget = Budget(context: self.managedObjectContext)
         
-        newItem.itemCost = NSNumber(value: (park.ticketPrice + 300))
-        newItem.itemDescription = park.description
-        newItem.itemLocation = park.state
-        newItem.itemName = "A trip to \(park.name)"
-        newItem.purchaseTime = "Future Travel!"
-        newItem.trailerID = park.website
-       
+        newBudget.amount = NSNumber(value: (park.ticketPrice + 300))
+        newBudget.audioFilename = ""
+        newBudget.category = "Leisure"
+        newBudget.currency = "USD"
+        newBudget.date = "Future Travel!"
+        newBudget.note = park.description
+        newBudget.title = "A trip to \(park.name)"
         
-        /*
-         ======================================================
-         Create an instance of the Photo Entity and dress it up
-         ======================================================
-        */
-       
-        // ❎ Create a new Photo entity in CoreData managedObjectContext
-        let newPhoto = Photo(context: self.managedObjectContext)
+        
+        let newPhoto = BudgetPhoto(context: self.managedObjectContext)
        
         // ❎ Dress up the new Photo entity
     
             // Obtain the album cover default image from Assets.xcassets as UIImage
-            let photoUIImage = UIImage(named: "DefaultTripPhoto")
+            let photoUIImage = UIImage(named: "Automobile")
            
             // Convert photoUIImage to data of type Data (Binary Data) in JPEG format with 100% quality
             let photoData = photoUIImage?.jpegData(compressionQuality: 1.0)
            
             // Assign photoData to Core Data entity attribute of type Data (Binary Data)
-            newPhoto.itemPhoto = photoData!
+            newPhoto.photoData = photoData!
             newPhoto.latitude = NSNumber(value: park.latitude)
             newPhoto.longitude = NSNumber(value: park.longitude)
-            
-        /*
-         ==============================
-         Establish Entity Relationships
-         ==============================
-        */
+        
        
-        // Establish One-to-One Relationship between Trip and Photo
-        newItem.photo = newPhoto
-        newPhoto.item = newItem
+        newBudget.photo = newPhoto
+        newPhoto.budget = newBudget
        
         /*
          =============================================
@@ -232,6 +210,25 @@ struct ParkDetails: View {
                 .edgesIgnoringSafeArea(.all) )
 
     }
+    
+    func giveGoodCost() -> String {
+        
+        var goodCost = ""
+        
+        if (park.ticketPrice == 0)
+        {
+            goodCost = "Free Entry"
+        }
+        else
+        {
+            goodCost = String(format: "%.2f", park.ticketPrice)
+        }
+       
+        
+        return goodCost
+        
+    }
+    
 }
  
 

@@ -11,6 +11,8 @@ import MapKit
 struct RestDetails: View {
    
     @State private var selectedMapTypeIndex = 0
+    @Environment(\.managedObjectContext) var managedObjectContext
+    @State private var showCocktailAddedAlert = false
 
     var mapTypes = ["Standard", "Satellite", "Hybrid"]
     
@@ -73,6 +75,25 @@ struct RestDetails: View {
                     .frame(minWidth: 300, maxWidth: 500, alignment: .leading)
                 }
                 
+                Section(header: Text("Add This Restaurant As a Future Food Trip!")) {
+
+                        Button(action: {
+                                        self.saveNewTrip()
+                                        self.showCocktailAddedAlert = true
+                                    }) {
+
+                                        HStack {
+                                            Image(systemName: "plus")
+                                                .imageScale(.medium)
+                                                .font(Font.title.weight(.regular))
+                                                .foregroundColor(.blue)
+                                            Text("Add To Future Expense")
+                                                .font(.system(size: 16))
+
+                                        }
+                                    }
+                                }
+                
                 
                 
                 
@@ -107,9 +128,81 @@ struct RestDetails: View {
     }
         .navigationBarTitle(Text(rest.name), displayMode: .inline)
             .font(.system(size: 14))
+        .alert(isPresented: $showCocktailAddedAlert, content: {self.cocktailAddedAlert})
+        
     
     
 }
+    func findOutHowCostly() -> Double
+    {
+        let measurement = rest.price.count
+        
+        if (measurement == 0)
+        {
+            return 25.0
+        }
+        
+        var predCost = (measurement - 1) * 10 + 25
+        
+        
+        return Double(predCost)
+    }
+    
+    func saveNewTrip() {
+       
+        let newBudget = Budget(context: self.managedObjectContext)
+        
+        newBudget.amount = NSNumber(value: findOutHowCostly())
+        newBudget.audioFilename = ""
+        newBudget.category = "Food & Dining"
+        newBudget.currency = "USD"
+        newBudget.date = "Future Trip"
+        newBudget.note = "Giving it a try!"
+        newBudget.title = "A food trip to: \(rest.name)"
+        
+        
+        let newPhoto = BudgetPhoto(context: self.managedObjectContext)
+       
+        // ❎ Dress up the new Photo entity
+    
+            // Obtain the album cover default image from Assets.xcassets as UIImage
+            let photoUIImage = UIImage(named: "Food & Dining")
+           
+            // Convert photoUIImage to data of type Data (Binary Data) in JPEG format with 100% quality
+            let photoData = photoUIImage?.jpegData(compressionQuality: 1.0)
+           
+            // Assign photoData to Core Data entity attribute of type Data (Binary Data)
+            newPhoto.photoData = photoData!
+            newPhoto.latitude = NSNumber(value: rest.latitude)
+            newPhoto.longitude = NSNumber(value: rest.longitude)
+        
+       
+        newBudget.photo = newPhoto
+        newPhoto.budget = newBudget
+       
+        /*
+         =============================================
+         MARK: - ❎ Save Changes to Core Data Database
+         =============================================
+         */
+       
+        do {
+            try self.managedObjectContext.save()
+        } catch {
+            return
+        }
+       
+    }   // End of function
+    
+    var cocktailAddedAlert: Alert {
+
+            Alert(title: Text("Restaurant Added!"),
+
+                  message: Text("This restaurant is now added as an item in the expense list as a future food trip! The budget is set based on the suggested price range"),
+
+                  dismissButton: .default(Text("OK")) )
+
+        }
     
     
     var RestLocationOnMap: some View {

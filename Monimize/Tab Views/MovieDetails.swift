@@ -19,6 +19,7 @@ struct NowPlayingDetails: View {
         // A Form cannot have more than 10 Sections.
         // Group the Sections if more than 10.
         Form {
+            
             Group {
                 Section(header: Text("MOVIE TITLE")) {
                     Text(movie.title)

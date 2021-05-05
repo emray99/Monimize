@@ -52,6 +52,21 @@ struct AddMovie: View {
     @State private var photoTakeOrPickIndex = 1     // Pick from Photo Library
    
     
+    
+    /*
+     var title: String
+     var currency: String
+     var amount: Double
+     var note: String
+     var category: String
+     var audioFilename: String
+     var date: String
+     var photoFilename: String
+     var photoLatitude: Double
+     var photoLongitude: Double
+     */
+    
+    
 
     var photoTakeOrPickChoices = ["Camera", "Photo Library"]
    
@@ -87,14 +102,14 @@ struct AddMovie: View {
                     TextField("Cost", value: $itemCost, formatter: tripCostFormatter)
                       }
                 
-                Section(header: Text("Movie Theater Location")) {
+              /*  Section(header: Text("Movie Theater Location")) {
                     TextField("Location", text: $itemLocation)
-                      }
+                      } */
                 
                 
-                Section(header: Text("Movie Trailer ID")) {
+             /*   Section(header: Text("Movie Trailer ID")) {
                     Text("TrailerID: \(movie.youTubeTrailerId)")
-                      }
+                      }*/
                 
                 
                 Section(header: Text("Movie Plan"), footer:
@@ -193,10 +208,10 @@ struct AddMovie: View {
        
         if let imageData = self.photoImageData {
             // The public function is given in UtilityFunctions.swift
-            let imageView = getImageFromBinaryData(binaryData: imageData, defaultFilename: "Biography")
+            let imageView = getImageFromBinaryData(binaryData: imageData, defaultFilename: "Leisure")
             return imageView
         } else {
-            return Image("Biography")
+            return Image("Leisure")
         }
     }
    
@@ -261,69 +276,41 @@ struct AddMovie: View {
          Create an instance of the Trip Entity and dress it up
          =====================================================
         */
-       
-        // ❎ Create a new Song entity in CoreData managedObjectContext
-        let newItem = Item(context: self.managedObjectContext)
-       
-        // ❎ Dress up the new Trip entity
-        /*
-        @NSManaged public var itemCost: NSNumber?
-        @NSManaged public var itemName: String?
-        @NSManaged public var itemLocation: String?
-        @NSManaged public var itemDescription: String?
-        @NSManaged public var purchaseTime: String?
-        @NSManaged public var trailerID: String?*/
         
-        newItem.itemCost = NSNumber(value: self.itemCost)
-        newItem.itemDescription = self.itemDescription
-        newItem.itemLocation = self.itemLocation
-        newItem.itemName = "Movie: \(movie.title)"
-        newItem.purchaseTime = purchaseTimeString
-        newItem.trailerID = movie.youTubeTrailerId
+        let newBudget = Budget(context: self.managedObjectContext)
         
-       
-        /*
-         ======================================================
-         Create an instance of the Photo Entity and dress it up
-         ======================================================
-        */
-       
+        newBudget.amount = NSNumber(value: self.itemCost)
+        newBudget.audioFilename = ""
+        newBudget.category = "Leisure"
+        newBudget.currency = "USD"
+        newBudget.date = purchaseTimeString
+        newBudget.note = self.itemDescription
+        newBudget.title = "Movie: \(movie.title)"
+        
         // ❎ Create a new Photo entity in CoreData managedObjectContext
-        let newPhoto = Photo(context: self.managedObjectContext)
+        let newPhoto = BudgetPhoto(context: self.managedObjectContext)
        
         // ❎ Dress up the new Photo entity
         if let imageData = self.photoImageData {
-            newPhoto.itemPhoto = imageData
+            newPhoto.photoData = imageData
         } else {
             // Obtain the album cover default image from Assets.xcassets as UIImage
-            let photoUIImage = UIImage(named: "Biography")
+            let photoUIImage = UIImage(named: "Leisure")
            
             // Convert photoUIImage to data of type Data (Binary Data) in JPEG format with 100% quality
             let photoData = photoUIImage?.jpegData(compressionQuality: 1.0)
            
             // Assign photoData to Core Data entity attribute of type Data (Binary Data)
-            newPhoto.itemPhoto = photoData!
+            newPhoto.photoData = photoData!
         }
         
         newPhoto.latitude = 0.0
         newPhoto.longitude = 0.0
         
-        /*
-         ==============================
-         Establish Entity Relationships
-         ==============================
-        */
+        newBudget.photo = newPhoto
+        newPhoto.budget = newBudget
        
-        // Establish One-to-One Relationship between Trip and Photo
-        newItem.photo = newPhoto
-        newPhoto.item = newItem
-       
-        /*
-         =============================================
-         MARK: - ❎ Save Changes to Core Data Database
-         =============================================
-         */
-       
+     
         do {
             try self.managedObjectContext.save()
         } catch {

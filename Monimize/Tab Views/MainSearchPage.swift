@@ -83,7 +83,7 @@ struct MainSearchPage: View {
 
                                 .foregroundColor(.blue)
 
-                            Text("Find a Restaurant!")
+                            Text("   Find a Restaurant!")
 
                                 .font(.system(size: 20))
 
