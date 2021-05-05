@@ -56,7 +56,8 @@ struct Home: View {
                 .padding()
             HStack {
                 Spacer()
-                BarChartView(data: ChartData(values: [("Jan",sumMonthly(month: "01")), ("Feb",sumMonthly(month:"02")), ("Mar",sumMonthly(month:"03")), ("Apr",sumMonthly(month:"04")), ("May",sumMonthly(month:"05")),("Jun",sumMonthly(month:"06")),("July",sumMonthly(month:"07")),("Aug",sumMonthly(month:"08")),("Sept",sumMonthly(month:"09")),("Oct",sumMonthly(month:"10")),("Nov",sumMonthly(month:"11")),("Dec",sumMonthly(month:"12"))]), title: "Expense 2021", legend: "Monthly", form: ChartForm.medium)
+                BarChartView(data: ChartData(values: [("Jan",sumMonthly(month: "01")), ("Feb",sumMonthly(month:"02")), ("Mar",sumMonthly(month:"03")), ("Apr",sumMonthly(month:"04")), ("May",sumMonthly(month:"05")),("Jun",sumMonthly(month:"06")),("July",sumMonthly(month:"07")),("Aug",sumMonthly(month:"08")),("Sept",sumMonthly(month:"09")),("Oct",sumMonthly(month:"10")),("Nov",sumMonthly(month:"11")),("Dec",sumMonthly(month:"12"))]), title: "Expense 2021", legend: "Monthly", form: ChartForm.medium, dropShadow: false)
+                
                 Spacer()
             }
            
