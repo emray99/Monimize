@@ -39,7 +39,7 @@ struct ContentView : View {
             let reason = "We need to unlock your data."
 
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
-                // 鉴权完成
+              
                 DispatchQueue.main.async {
                     if success {
                         userData.userAuthenticated = true
@@ -49,7 +49,7 @@ struct ContentView : View {
                 }
             }
         } else {
-            // 没有生物特征识别功能
+          
         }
     }
     

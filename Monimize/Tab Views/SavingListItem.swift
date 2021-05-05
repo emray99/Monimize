@@ -18,6 +18,8 @@ struct SavingListItem: View {
     // ❎ Refresh this view upon notification that the managedObjectContext completed a save.
     // Upon refresh, @FetchRequest is re-executed fetching all Song entities with all the changes.
     @EnvironmentObject var userData: UserData
+    
+    @State private var changeCheck = false
    
     var body: some View {
         HStack {
@@ -28,6 +30,20 @@ struct SavingListItem: View {
                 .frame(width: 80.0)
             
             HStack{
+                
+                if (checkCompletion(saving: saving))
+                {
+                    Image(systemName:"checkmark.square")
+                    .foregroundColor(Color.blue)
+                    .imageScale(.large)
+                    
+                }
+                else
+                {
+                    Image(systemName: "square")
+                        .foregroundColor(Color.blue)
+                        .imageScale(.large)
+                }
            
                 VStack(alignment: .leading) {
                     /*
@@ -48,5 +64,16 @@ struct SavingListItem: View {
     }
     
     
+}
+
+public func checkCompletion(saving: SavingItem) -> Bool{
+    let current = saving.currentSave!.doubleValue
+    let target = saving.budgetValue!.doubleValue
+    if (current >= target){
+        return true
+    }
+    else {
+        return false
+    }
 }
 
