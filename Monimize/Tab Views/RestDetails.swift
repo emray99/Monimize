@@ -230,7 +230,7 @@ struct RestDetails: View {
 
         }
 
-        return AnyView( MapView(mapType: mapType, latitude: rest.latitude, longitude: rest.longitude, delta: 0.005, deltaUnit: "degrees", annotationTitle: rest.name, annotationSubtitle: "")
+        return AnyView( MapView(mapType: mapType, latitude: rest.latitude, longitude: rest.longitude, delta: 0.05, deltaUnit: "degrees", annotationTitle: rest.name, annotationSubtitle: "")
 
                 .navigationBarTitle(Text("\(rest.name) Location"), displayMode: .inline)
 

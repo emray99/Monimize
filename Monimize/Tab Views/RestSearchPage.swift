@@ -135,13 +135,9 @@ struct SearchRestPage: View {
    
 
     /*
-
      ------------------
-
      MARK: - Search API
-
      ------------------
-
      */
 
     func searchApi() {
@@ -160,13 +156,9 @@ struct SearchRestPage: View {
    
 
     /*
-
      ---------------------------
-
      MARK: - Show Search Results
-
      ---------------------------
-
      */
 
     var showSearchResults: some View {
@@ -184,13 +176,9 @@ struct SearchRestPage: View {
    
 
     /*
-
      ---------------------------------
-
      MARK: - Country Not Found Message
-
      ---------------------------------
-
      */
 
     var notFoundMessage: some View {
@@ -226,13 +214,9 @@ struct SearchRestPage: View {
    
 
     /*
-
      --------------------------------
-
      MARK: - Missing Input Data Alert
-
      --------------------------------
-
      */
 
     var missingInputDataAlert: Alert {

@@ -40,7 +40,7 @@ struct AddMoney: View {
     
     var body: some View {
         Form {
-            Section(header: Text("Recipe Name")) {
+            Section(header: Text("Add Amount")) {
                 recipeNameSubview
             }
 

@@ -21,7 +21,9 @@ public func obtainYelpDataFromApi(category: String, query: String) {
     
    
     if category == previousCategory && query == previousQuery {
-        return
+        //return
+        previousCategory = category
+        previousQuery = query
     } else {
         previousCategory = category
         previousQuery = query
