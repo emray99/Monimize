@@ -27,6 +27,7 @@
 		075DB30A264309D7008936D1 /* BudgetWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075DB309264309D7008936D1 /* BudgetWidget.swift */; };
 		075DB30C264309DA008936D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 075DB30B264309DA008936D1 /* Assets.xcassets */; };
 		075DB310264309DA008936D1 /* BudgetWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 075DB302264309D6008936D1 /* BudgetWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		07ABC4CD26437A6400C418E6 /* AudioFiles in Resources */ = {isa = PBXBuildFile; fileRef = 07ABC4CC26437A6400C418E6 /* AudioFiles */; };
 		5C46BD86262FBA490052EA29 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C46BD85262FBA490052EA29 /* WebView.swift */; };
 		5C46BD8A262FBA620052EA29 /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C46BD89262FBA620052EA29 /* UtilityFunctions.swift */; };
 		5C46BD8D262FBA980052EA29 /* SearchResultsEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C46BD8C262FBA980052EA29 /* SearchResultsEmpty.swift */; };
@@ -155,6 +156,7 @@
 		075DB30D264309DA008936D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		075DB31726430DFE008936D1 /* Monimize.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Monimize.entitlements; sourceTree = "<group>"; };
 		075DB31A26430E11008936D1 /* BudgetWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BudgetWidgetExtension.entitlements; sourceTree = "<group>"; };
+		07ABC4CC26437A6400C418E6 /* AudioFiles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AudioFiles; sourceTree = "<group>"; };
 		5C46BD85262FBA490052EA29 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		5C46BD89262FBA620052EA29 /* UtilityFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFunctions.swift; sourceTree = "<group>"; };
 		5C46BD8C262FBA980052EA29 /* SearchResultsEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsEmpty.swift; sourceTree = "<group>"; };
@@ -517,6 +519,7 @@
 				5C46BD82262FB9FE0052EA29 /* CoreData Model */,
 				5C46BD99262FBC210052EA29 /* Data Models */,
 				5CBA6E45262D151F009B29F7 /* ContentView.swift */,
+				07ABC4CC26437A6400C418E6 /* AudioFiles */,
 				0729871A263076AA0078FF8B /* Tab Views */,
 				5CBA6E4A262D1520009B29F7 /* Assets.xcassets */,
 				5CBA6E4F262D1520009B29F7 /* LaunchScreen.storyboard */,
@@ -630,6 +633,7 @@
 			files = (
 				5C46BE05263651BA0052EA29 /* SavingTest.json in Resources */,
 				5CBA6E51262D1520009B29F7 /* LaunchScreen.storyboard in Resources */,
+				07ABC4CD26437A6400C418E6 /* AudioFiles in Resources */,
 				075DB1B626386081008936D1 /* BudgetDataM.json in Resources */,
 				5CBA6E4E262D1520009B29F7 /* Preview Assets.xcassets in Resources */,
 				5C46BDB2262FCEBB0052EA29 /* MonimizeItemData.json in Resources */,
