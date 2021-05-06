@@ -16,7 +16,7 @@ var listOfAllCurrencies = [String]()
 
  
 // Register at https://free.currencyconverterapi.com/ to get your own API key
-let myApiKey = "14ddb644b116505bbfe8" //"3a2b62001295ece6f10b"
+let myApiKey = /*"14ddb644b116505bbfe8"*/ "3a2b62001295ece6f10b"
 
  
 /*

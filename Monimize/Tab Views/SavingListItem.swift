@@ -19,6 +19,8 @@ struct SavingListItem: View {
     // Upon refresh, @FetchRequest is re-executed fetching all Song entities with all the changes.
     @EnvironmentObject var userData: UserData
     
+    
+    
     @State private var changeCheck = false
    
     var body: some View {
@@ -28,6 +30,7 @@ struct SavingListItem: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 80.0)
+            
             
             HStack{
                 
